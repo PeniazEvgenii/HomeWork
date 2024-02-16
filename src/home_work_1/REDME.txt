@@ -1,1 +1,2 @@
-1. Побитовые операции - OperationsBitwise
+задание 1. Побитовые операции - OperationsBitwise
+задание 2. Приоритетность     - Priority
