@@ -1,2 +1,9 @@
-задание 1. Побитовые операции - OperationsBitwise
-задание 2. Приоритетность     - Priority
+﻿задание 1.     - OperationsBitwise
+задание 2.     - Priority
+задание 4
+        4.1    - NumberOdd
+	4.2    - NumberAverage 
+	4.3    - NumberDivision
+	4.4    - Converter
+	4.5    - LetterCheck
+	4.6    - YearType
