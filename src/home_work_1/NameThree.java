@@ -11,8 +11,6 @@ public class NameThree {
         switch (name.toLowerCase()) {
             case "вася":
                 System.out.println("Привет");
-                System.out.println("Я тебя так долго ждал");    // можно убрать 14 строку
-                break;                                          // и оператор break
             case "анастасия":
                 System.out.println("Я тебя так долго ждал");
                 break;

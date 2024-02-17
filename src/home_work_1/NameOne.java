@@ -8,7 +8,7 @@ public class NameOne {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите ваше имя");
         String name = console.nextLine();
-
+        /*
         if (Objects.equals(name.toLowerCase(), "вася")) {
             System.out.println("Привет");
             System.out.println("Я тебя так долго ждал");
@@ -19,7 +19,7 @@ public class NameOne {
                 System.out.println("Добрый день, а вы кто?");
             }
         }
-    // или такой сделать? разница больше с if else
+         */
         if (Objects.equals(name.toLowerCase(), "вася")) {
             System.out.println("Привет");
         }
