@@ -3,8 +3,8 @@ package home_work_1;
 import java.util.Scanner;
 
 public class NumberDivision {
-    public static Scanner console = new Scanner(System.in); // непонятно, что объект console виден ? в других классах. без static в static методах не виден
-    // к статичным переменным можно обр без создания объекта. static переменная одна для всех объектов класса
+    public static Scanner console = new Scanner(System.in);
+
     public static void main(String[] args) {
         System.out.println("Введи делимое число");
         int firstNum = getCheckInt();

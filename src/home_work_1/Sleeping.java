@@ -19,6 +19,7 @@ public class Sleeping {
         if (!weekday || vokation) {
             rest = true;
         }
+
         return rest;
     }
 }

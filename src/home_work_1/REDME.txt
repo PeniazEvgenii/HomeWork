@@ -1,5 +1,6 @@
 ﻿задание 1.     - OperationsBitwise
 задание 2.     - Priority
+задание 3.     - Task3
 задание 4
         4.1    - NumberOdd
 	4.2    - NumberAverage 

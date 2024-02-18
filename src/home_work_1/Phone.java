@@ -3,7 +3,6 @@ package home_work_1;
 public class Phone {
     public static void main(String[] args) {
         int[] mass = {1,2,3,4,5,6,7,8,9,0};
-
         String phoneNum = createPhoneNumber(mass);
         System.out.println(phoneNum);
     }
@@ -11,6 +10,7 @@ public class Phone {
         String format = "(";
 
         for (int i = 0; i < arr.length; i++) {
+
             if (i >= 0 && i <= 2) {
                 format += arr[i];
                 if (i == 2) {
@@ -24,6 +24,7 @@ public class Phone {
             } else if (i >= 6 && i <= 9) {
                 format += arr[i];
             }
+
         }
 
         return format;

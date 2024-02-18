@@ -24,6 +24,7 @@ public class NumberOdd {
             System.out.println("Число " + secondNum + " нечетное");
         }
     }
+
     public static void isDebugMode (String [] array) {
         for (String ar : array) {
             if ("debug".equalsIgnoreCase(ar)) {

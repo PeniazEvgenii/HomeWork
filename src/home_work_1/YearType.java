@@ -15,6 +15,7 @@ public class YearType {
         } else {
             System.out.println(year + " обычный год");
         }
+        
     }
 
     public static int getCheckInt() {
