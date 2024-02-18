@@ -12,3 +12,4 @@
 	6.1    - NameOne
 	6.2    - NameTwo
 	6.3    - NameThree
+задание 7      - Phone
