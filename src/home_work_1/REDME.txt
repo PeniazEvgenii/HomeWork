@@ -7,6 +7,7 @@
 	4.4    - Converter
 	4.5    - LetterCheck
 	4.6    - YearType
+задание 5      - Sleeping
 задание 6
 	6.1    - NameOne
 	6.2    - NameTwo
