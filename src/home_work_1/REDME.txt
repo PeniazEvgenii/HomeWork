@@ -14,3 +14,4 @@
 	6.2    - NameTwo
 	6.3    - NameThree
 задание 7      - Phone
+задание 8      - BinConverter
