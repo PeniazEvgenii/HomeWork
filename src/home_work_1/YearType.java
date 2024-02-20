@@ -21,7 +21,7 @@ public class YearType {
     public static int getCheckInt() {
         int temp;
 
-        if (console.hasNextInt()) {    // не получается сделать && console.nextInt() > 0 . Просит второй ввод
+        if (console.hasNextInt()) {
             temp = console.nextInt();
         } else {
             System.out.println("Введен некорректный год");

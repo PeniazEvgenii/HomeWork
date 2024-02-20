@@ -14,7 +14,6 @@ public class BinConverter {
         } else {
             System.out.println("Введено число не входящее в интервал от -128 до 127. Запустите программу заново");
             System.exit(0);
-
         }
 
     }
