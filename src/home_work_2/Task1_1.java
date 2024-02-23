@@ -11,16 +11,15 @@ public class Task1_1 {
     private static final int MIN_INPUT_NUMBER = 1;
 
     public static void main(String[] args) {
-        long InputNumber;
-        long MaxInput_number = Long.MAX_VALUE;
+        long inputNumber;
+        long maxInputNumber = Long.MAX_VALUE;
 
         if (args.length != 0) {                               // проверил на наличие ввода
-            InputNumber = Long.parseLong(args[0]);
-            System.out.println("Вы ввели " + InputNumber);
+            inputNumber = Long.parseLong(args[0]);
+            System.out.println("Вы ввели " + inputNumber);
 
-            boolean checkInput = InputNumber >= MIN_INPUT_NUMBER && InputNumber <= MaxInput_number;        //также проверка на корректность
-            if (!checkInput) {
-                System.out.println("Вы ввели неверное значение. Введите от " + MIN_INPUT_NUMBER + " до " + MaxInput_number);
+            if (!(inputNumber >= MIN_INPUT_NUMBER)) {
+                System.out.println("Вы ввели неверное значение. Введите от " + MIN_INPUT_NUMBER + " до " + maxInputNumber);
                 return;
             }
         }
@@ -29,21 +28,21 @@ public class Task1_1 {
             return;
         }
 
-        int currentNumber = 1;
-        int multiplication = 1;
+        long currentNumber = 1;
+        long multiplication = 1;
         StringBuffer stringBuffer = new StringBuffer();
 
-        while (currentNumber <= InputNumber ){
+        while (currentNumber <= inputNumber ){
             multiplication *= currentNumber;
             stringBuffer.append(currentNumber);
 
-            if (multiplication < 0) {                                // проверка переполнения
+            if (multiplication < 0) {
                 System.out.println("При выполнении программы произошло переполнение!");
-                System.out.println("Максимальное значение для ввода: " + (currentNumber-1));
+                System.out.println("Максимальное значение для ввода: " + (currentNumber - 1));
                 return;
             }
 
-            if (currentNumber < InputNumber) {          // красивая печать
+            if (currentNumber < inputNumber) {
                 stringBuffer.append(" * ");
             } else {
                 stringBuffer.append(" = ");
@@ -52,7 +51,7 @@ public class Task1_1 {
             currentNumber++;
 
         }
-        System.out.println(stringBuffer.toString() + multiplication);
 
+        System.out.println(stringBuffer.toString() + multiplication);
     }
 }
