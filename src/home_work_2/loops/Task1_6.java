@@ -1,4 +1,4 @@
-package home_work_2;
+package home_work_2.loops;
 /*
  * 1.6. Вывести таблицу умножения в консоль
  */

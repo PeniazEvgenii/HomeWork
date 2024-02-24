@@ -1,4 +1,4 @@
-package home_work_2;
+package home_work_2.loops;
 
 import java.util.Scanner;
 
@@ -17,9 +17,9 @@ public class Task1_3 {
         Scanner console = new Scanner(System.in);
         System.out.println("Введи число, которое нужно возвести в степень");
         double number = console.nextDouble();
-
         int inputDegree;
         boolean checkMinDegree;
+
         do {
             System.out.println("Введи степень, в которую нужно возвести в число");
             inputDegree = console.nextInt();                          // ввод в консоль через запятую

@@ -1,4 +1,4 @@
-package home_work_2;
+package home_work_2.loops;
 
 public class Task1_1Recurs {
     private static final int MIN_INPUT_NUMBER = 1;
