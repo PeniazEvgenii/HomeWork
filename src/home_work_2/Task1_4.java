@@ -10,28 +10,35 @@ package home_work_2;
 
 import java.util.Scanner;
 
-public class Task1_4 {               // доделать!!!!!! тест
+public class Task1_4 {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        System.out.println("Введи любое целочисленное число");
-        //int value = console.nextInt();
-        int value = -10;
+        int value;
+
+        do {
+            System.out.println("Введи целочисленное число");
+
+            if (console.hasNextInt()){
+                value = console.nextInt();
+                break;
+            } else {
+                System.out.println("Вы ввели не целое число");
+                console.next();
+            }
+        } while(true);
+
         long a = 1;
 
-        long result = value;
         while (true){
-            long temp = a;
+            long tempResult = a;
             a = a * value;
 
-            if ( temp != (a /value)) {
-                System.out.println("переполнение");
-                System.out.println(temp);
-                System.out.println(a);
+            if (tempResult != (a / value)) {
+                System.out.println("Произошло переполнение");
+                System.out.println("Значение до переполнения: " + tempResult);
+                System.out.println("Значение после переполнения: " + a);
                 break;
             }
         }
-
-
     }
-
 }
