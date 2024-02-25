@@ -18,7 +18,7 @@ public class Task1_5 {
     public static final int MIN_NATURAL_NUMBER = 1;
 
     public static void main(String[] args) {
-     //   getMaxDigit();
+     //  getMaxDigit();                        //методы закомментированы
      //  System.out.println("");
 
      //  checkRandomGenerator();
@@ -29,9 +29,15 @@ public class Task1_5 {
 
      //  fibonacci();
      //  System.out.println("");
-      //  getRowOfNumbers();
-       // toNumberReverse ();
-        toNumberReverse();
+
+     //  getRowOfNumbers();
+     //  System.out.println("");
+
+     //  toNumberReverse ();
+     //  System.out.println("");
+
+
+     // toNumberReverse();
     }
 
     public static void getMaxDigit() {
@@ -138,6 +144,7 @@ public class Task1_5 {
         System.out.println(stringBuffer.toString());
     }
 
+
     public static void getRowOfNumbers (){
         System.out.println("Вывести на экран ряд натуральных чисел от минимума до максимума с шагом");
         int startRow;
@@ -167,7 +174,8 @@ public class Task1_5 {
         System.out.println(row);
     }
 
-    public static void toNumberReverse () {      // может все в лонге сделать
+
+    public static void toNumberReverse () {
         System.out.println("Переворот числа");
         long numberReverse;
         boolean checkNaturalNum;
@@ -211,17 +219,4 @@ public class Task1_5 {
         }
         System.out.println(ne);
     }
-
-    //Scanner console = new Scanner(System.in);
-
-    //  int number;
-    // boolean checkNaturalNum;
-    // do {
-    //     System.out.println("Введи натуральное число");
-    //    number = console.nextInt();
-    //   checkNaturalNum = number < MIN_NATURAL_NUMBER;
-    //    if (checkNaturalNum){
-    //        System.out.println("Вы ввели неверное число. Введите от 1 и больше");
-    //       }
-    //   } while (checkNaturalNum);
 }
