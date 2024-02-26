@@ -10,9 +10,15 @@ home_work_2.loops
 задание 1.6     -  Task1_6
 
 
-задание 2
+задание 2.1
 	2.1.1, 2.1.2   -  ArraysUtils
 	2.1.1.1  - ArrayExampleConsole
 	2.1.1.2  - ArrayExampleRandom
+задание 2.2      - ArraysIteration
+задание 2.3      - 
+задание 2.4      - Task2_4
+задание 3        - AlgoritmSortShaker.vsdx и pdf
+задание 4        
+	4.1      - SortUtils
 
 	
