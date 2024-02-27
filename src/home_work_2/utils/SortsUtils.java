@@ -8,6 +8,7 @@ package home_work_2.utils;
  *           помощи алгоритма шейкерная сортировка. Описание алгоритма: https://prog-cpp.ru/sort-shaker/
  */
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class SortsUtils {
@@ -30,6 +31,80 @@ public class SortsUtils {
         }
     }
 
+
+
+    public static void shake1(int[] arr){
+        int flag = 0;
+        int schet = 0;
+        for (int i = 0; i < arr.length - i; i++) {
+            flag = 1;
+            for (int j = i+1; (j < arr.length - i) && flag !=0; j++) {
+                flag = 0;
+                if (arr[j] < arr[j-1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                    flag = 1;
+                    schet++;
+                }
+
+            }
+            for (int c = arr.length - 1 -i; c > i; c--) {
+                if(arr[c] < arr[c-1]){
+                    int temp = arr[c];
+                    arr[c] = arr[c-1];
+                    arr[c-1]= temp;
+                    flag=1;
+                    schet++;
+                }
+            }
+        }
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n" +schet);
+    }
+
+
+    public static void shake(int[] arr) {
+        int left = 0;
+        int right = arr.length - 1;
+        int flag = 1;
+
+        int schet = 0;
+        while (left < right && flag != 0){
+            flag = 0;
+            for (int i = left; i < right; i++) {
+                if(arr[i] > arr[i + 1]){
+                    int tempRight = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = tempRight;
+                    flag = 1;
+                    schet++;
+                }
+            }
+            right--;
+
+            for (int i = right; i > left; i--) {
+                if(arr[i] < arr [i - 1]){
+                    int tempLeft = arr[i];
+                    arr[i] = arr[i - 1];
+                    arr[i - 1] = tempLeft;
+                    flag = 1;
+                    schet++;
+                }
+            }
+            left++;
+        }
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n"+schet + " через while");
+    }
+
+
+
+
     public static void main(String[] args) {
         int[] array = new int[50];
         Random rand = new Random();
@@ -41,6 +116,10 @@ public class SortsUtils {
             System.out.print(i + " ");
         }
         System.out.println();
-        sort(array);
+
+        int[] array2 = Arrays.copyOf(array, 50);
+        //sort(array);
+        shake1(array);
+        shake(array2);
     }
 }
