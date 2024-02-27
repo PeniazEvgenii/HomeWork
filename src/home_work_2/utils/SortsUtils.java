@@ -8,43 +8,16 @@ package home_work_2.utils;
  *           помощи алгоритма шейкерная сортировка. Описание алгоритма: https://prog-cpp.ru/sort-shaker/
  */
 
-import java.util.Arrays;
-import java.util.Random;
 
 public class SortsUtils {
 
-    public static void sort(int[] arr){                        //не забыть удалить счетчик проходов и массив в main
+    public static void sort(int[] arr){
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
-                }
-            }
-        }
-    }
-
-
-    public static void shake1(int[] arr){
-        int flag = 1;
-        for (int i = 0; (i < arr.length - i ) && flag !=0; i++) {
-            flag = 0;
-            for (int j = i+1; j < arr.length - i; j++) {
-                flag = 0;
-                if (arr[j] < arr[j-1]){
-                    int temp = arr[j];
-                    arr[j] = arr[j-1];
-                    arr[j-1] = temp;
-                    flag = 1;
-                }
-            }
-            for (int c = arr.length - 1 -i; c > i; c--) {
-                if(arr[c] < arr[c-1]){
-                    int temp = arr[c];
-                    arr[c] = arr[c-1];
-                    arr[c-1]= temp;
-                    flag=1;
                 }
             }
         }
@@ -77,4 +50,5 @@ public class SortsUtils {
             left++;
         }
     }
+
 }

@@ -9,13 +9,15 @@ package home_work_2.arrays;
  *		2.2.3. Вывести все элементы массива в консоль в обратном порядке.
  */
 
+import java.util.Arrays;
+
 import static home_work_2.utils.ArraysUtils.arrayFromConsole;
 
 public class ArraysIteration {
     public static void main(String[] args) {
-        //getArrayConsole();
-        //getEachSecond();
-        //getReverseArray();
+        getArrayConsole();
+        getEachSecond();
+        getReverseArray();
     }
 
     public static void getArrayConsole () {
@@ -117,6 +119,5 @@ public class ArraysIteration {
             System.out.print(array[index] + " ");
             index--;
         } while (index >= 0);
-
     }
 }

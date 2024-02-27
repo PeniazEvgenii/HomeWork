@@ -18,26 +18,25 @@ public class Task1_5 {
     public static final int MIN_NATURAL_NUMBER = 1;
 
     public static void main(String[] args) {
-     //  getMaxDigit();                        //методы закомментированы
-     //  System.out.println("");
+      getMaxDigit();
+      System.out.println("");
 
-     //  checkRandomGenerator();
-     //  System.out.println("");
+      checkRandomGenerator();
+      System.out.println("");
 
-     //  countOddEvenDigit();
-     //  System.out.println("");
+      countOddEvenDigit();
+      System.out.println("");
 
-     //  fibonacci();
-     //  System.out.println("");
+      fibonacci();
+      System.out.println("");
 
-     //  getRowOfNumbers();
-     //  System.out.println("");
+      getRowOfNumbers();
+      System.out.println("");
 
-     //  toNumberReverse ();
-     //  System.out.println("");
+      toNumberReverse ();
+      System.out.println("");
 
-
-     // toNumberReverse();
+      toNumberReverseTest();
     }
 
     public static void getMaxDigit() {
@@ -62,7 +61,6 @@ public class Task1_5 {
             number /= 10;
         }
        System.out.println("В числе " + numberPrint + " максимальна цифра " + maxDigit);
-
     }
 
 
@@ -211,10 +209,10 @@ public class Task1_5 {
         } while (checkNaturalNum);
 
         long tempNumber = numberReverse;
-        long ne = 1;
+        long ne = 0;
 
         while (tempNumber > 0) {
-            ne = (tempNumber % 10) * 10;
+            ne = ne * 10 + (tempNumber % 10);
             tempNumber /= 10;
         }
         System.out.println(ne);

@@ -20,6 +20,7 @@ import java.util.Arrays;
     4.2.3 После теста с рандомно заполненным массивом пишем тест с массивом полученным через консоль. Вызывая ранее созданный
     метод arrayFromConsole (ArraysUtils.arrayFromConsole()) получить массив. Отсортировать.
 */
+
 public class SortsMain {
     public static void main(String[] args) {
         int[] test1 = new int[]{1, 2, 3, 4, 5, 6};
@@ -48,11 +49,13 @@ public class SortsMain {
 
         System.out.println();
 
+        System.out.println("Сортировка пузырьком рандомного массива");
         int[] testBubble1 = ArraysUtils.arrayRandom(50,100);
         String testBubbleSort1 = Arrays.toString(testBubble1) + " -> \n";
         SortsUtils.sort(testBubble1);
         System.out.println(testBubbleSort1 + Arrays.toString(testBubble1));
 
+        System.out.println("Сортировка пузырьком массива с консоли");
         int[] testBubble2 = ArraysUtils.arrayFromConsole();
         String testBubbleSort2 = Arrays.toString(testBubble2) + " -> ";
         SortsUtils.sort(testBubble2);
@@ -60,11 +63,13 @@ public class SortsMain {
 
         System.out.println();
 
+        System.out.println("Шейкерная сортировка рандомного массива");
         int[] testShaker1 = ArraysUtils.arrayRandom(50,100);
         String testShakeSort1 = Arrays.toString(testShaker1) + " -> \n";
         SortsUtils.shake(testShaker1);
         System.out.println(testShakeSort1 + Arrays.toString(testShaker1));
 
+        System.out.println("Шейкерная сортировка массива с консоли");
         int[] testShaker2 = ArraysUtils.arrayFromConsole();
         String testShakeSort2 = Arrays.toString(testShaker2) +  " -> ";
         SortsUtils.shake(testShaker2);
