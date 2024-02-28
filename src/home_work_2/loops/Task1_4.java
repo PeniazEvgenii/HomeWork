@@ -23,7 +23,7 @@ public class Task1_4 {
                 break;
             } else {
                 System.out.println("Вы ввели не целое число");
-                console.next();
+                 console.next();
             }
         } while(true);
 

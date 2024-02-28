@@ -14,7 +14,7 @@ public class Task1_1 {
         long inputNumber;
         long maxInputNumber = Long.MAX_VALUE;
 
-        if (args.length != 0) {                               // проверил на наличие ввода
+        if (args.length != 0) {
             inputNumber = Long.parseLong(args[0]);
             System.out.println("Вы ввели " + inputNumber);
 

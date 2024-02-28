@@ -33,17 +33,6 @@ public class Task2_4 {
         String elements = getElementBeforeAverage(array);
         System.out.println("Элементы меньше среднего арифметического: " + elements);
 
-      // char[] test = elements.toCharArray();
-      // for (char c : test) {
-      //     System.out.print(c + " ");
-      // }
-      // System.out.println();
-
-      // String[] elementsnew = elements.split(" ");    //тестики
-      // for (String s : elementsnew) {
-      //     System.out.print(s + " ");
-      // }
-
         String minElements = getMinTwoElements(array);
         System.out.println("Два наименьших элемента массива " + minElements);
 
@@ -92,7 +81,7 @@ public class Task2_4 {
                 elements += i + " ";
             }
         }
-        return elements;    //нашел ArrayList <Integer>
+        return elements;
     }
 
 
@@ -112,7 +101,7 @@ public class Task2_4 {
                 minSecond = array[i];
             }
         }
-        return minFirst + " " + minSecond;    // подумать о массиве?
+        return minFirst + " " + minSecond;
     }
 
 
@@ -145,9 +134,9 @@ public class Task2_4 {
     }
 
 
-    public static String toSqueezeArray(int[] array, int a, int b) {  // может логичнее вывод и в массив
+    public static String toSqueezeArray(int[] array, int a, int b) {
 
-        int[] arrayTemp = new int[array.length];                       //испортил без копии array.
+        int[] arrayTemp = new int[array.length];
         System.arraycopy(array, 0, arrayTemp, 0, array.length);
 
         if (a < 0 || b < 0 || b < a) {

@@ -9,13 +9,13 @@ package home_work_2.loops;
  */
 
 public class Task1_2 {
-    public static final int MIN_INPUT_NUMBER = 1;    // проверить положит и long плюс условия по задаче
+    public static final int MIN_INPUT_NUMBER = 1;
 
     public static void main(String[] args) {
         long inputNumber;
         long maxInputNumber = Long.MAX_VALUE;
 
-        if (args.length != 0) {    //строка не нулевая, но что в ней?
+        if (args.length != 0) {
             String firstArgument = args[0];
 
             if (firstArgument.matches("-?\\d+")) {

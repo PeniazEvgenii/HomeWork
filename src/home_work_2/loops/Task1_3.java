@@ -1,5 +1,6 @@
 package home_work_2.loops;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /*
@@ -14,32 +15,29 @@ public class Task1_3 {
     public static final int MIN_INPUT_DEGREE = 1;
 
     public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введи число, которое нужно возвести в степень");
+        Scanner console = new Scanner(System.in).useLocale(Locale.US);
+        System.out.println("Введи число, которое нужно возвести в степень. Ввод вещественных через запятую");
         double number = console.nextDouble();
         int inputDegree;
         boolean checkMinDegree;
 
         do {
             System.out.println("Введи степень, в которую нужно возвести в число");
-            inputDegree = console.nextInt();                          // ввод в консоль через запятую
+            inputDegree = console.nextInt();
             checkMinDegree = inputDegree < MIN_INPUT_DEGREE;
 
             if (checkMinDegree) {
                 System.out.println("Ошибка! Введи значение степени от " + MIN_INPUT_DEGREE + " и выше");
             }
-
         } while (checkMinDegree);
 
         int current = inputDegree;
         double result = 1;
 
-
         while (current > 0) {
             result *= number;
             current--;
         }
-
         System.out.println(number + " ^ " + inputDegree + " = " + result);
     }
 }
