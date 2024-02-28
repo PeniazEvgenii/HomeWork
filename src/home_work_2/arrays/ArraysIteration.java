@@ -15,13 +15,17 @@ import static home_work_2.utils.ArraysUtils.arrayFromConsole;
 
 public class ArraysIteration {
     public static void main(String[] args) {
-        getArrayConsole();
-        getEachSecond();
-        getReverseArray();
+        int[] array = arrayFromConsole();
+
+        System.out.println("Вывести все элементы в консоль");
+        getArrayInConsole(array);
+        System.out.println("\nВывести каждый второй элемент массива в консоль");
+        getEachSecond(array);
+        System.out.println("\nВывести все элементы массива в консоль в обратном порядке");
+        getReverseArray(array);
     }
 
-    public static void getArrayConsole () {
-        int[] array = arrayFromConsole();
+    public static void getArrayInConsole(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
@@ -50,9 +54,7 @@ public class ArraysIteration {
     }
 
 
-    public static void getEachSecond (){
-        int[] array = arrayFromConsole();
-
+    public static void getEachSecond(int[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i % 2 != 0) {
                 System.out.print(array[i] + " ");
@@ -91,16 +93,14 @@ public class ArraysIteration {
     }
 
 
-    public static void getReverseArray() {
-        int[] array = arrayFromConsole();
-
+    public static void getReverseArray(int[] array) {
         for (int i = array.length - 1; i >= 0; i--) {
             System.out.print(array[i] + " ");
         }
 
         System.out.println();
 
-        String temp ="";                         // подумать! что кроме строки можно !
+        String temp ="";                         
         for (int i : array) {
             temp = i + " " + temp;
         }

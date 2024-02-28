@@ -13,7 +13,11 @@
 	2.1.1.1  - ArrayExampleConsole
 	2.1.1.2  - ArrayExampleRandom
 задание 2.2      - ArraysIteration
-задание 2.3      - 
+задание 2.3
+	2.3.1    - DoWhileOperation
+	2.3.2    - WhileOperation
+	2.3.3    - ForOperation
+	2.3.4    - ForEachOperation
 задание 2.4      - Task2_4
 задание 3        - AlgoritmSortShaker.vsdx и pdf
 задание 4        
