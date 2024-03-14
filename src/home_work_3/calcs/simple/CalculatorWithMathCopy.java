@@ -12,7 +12,9 @@ package home_work_3.calcs.simple;
  * Вывести в консоль результат.
  */
 
-public class CalculatorWithMathCopy {
+import home_work_3.calcs.api.ICalculator;
+
+public class CalculatorWithMathCopy implements ICalculator {
 
     /**
      * Метод получения результата деления одного числа на второе
