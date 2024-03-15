@@ -32,6 +32,6 @@ public class CalculatorWithMemoryMain {
         calcMemory.save();
         calcMemory.getAddition(calcMemory.load(), calcMemory.getMultiplicatin(15, 7));
         calcMemory.save();
-        System.out.printf("4.1 + 15 * 7 + (28 / 5) ^ 2 =  %.4f%n", calcMemory.load());
+        System.out.printf("4.1 + 15 * 7 + (28 / 5) ^ 2 =  %.4f", calcMemory.load());
     }
 }
