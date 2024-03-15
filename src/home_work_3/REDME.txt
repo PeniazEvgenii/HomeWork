@@ -1,0 +1,33 @@
+задание1          -  WithoutCalculatorMain
+задание2.1-2.4    -  CalculatorWithOperator
+задание2.5        -  CalculatorWithOperatorMain
+задание 3.1-3.2   -  CalculatorWithMathCopy
+задание 3.3       -  CalculatorWithMathCopyMain
+задание 4.1-4.3   -  CalculatorWithMathExtends
+задание 4.4       -  CalculatorWithMathExtendsMain
+
+задание 5.1-5.4   -  CalculatorWithCounterClassic
+задание 5.5       -  CalculatorWithCounterClassicMain
+
+задание 6.1-6.4   -  CalculatorWithCounterAutoSuper
+задание 6.5       -  CalculatorWithCounterAutoSuperMain
+
+задание 7.1-7.6   -  CalculatorWithCounterDelegateComposite
+задание 7.7       -  CalculatorWithCounterDelegateCompositeMain
+
+задание 8.1-8.6   -  CalculatorWithCounterDelegateAgregation
+задание 8.7       -  CalculatorWithCounterDelegateAgregationMain
+
+задание 9.1-9.6   -  CalculatorWithCounterAutoChoiceAgregation
+задание 9.7       -  CalculatorWithCounterDelegateChoiceAgregationMain
+
+задание 10        -  ICalculator
+
+задание 11.1-11.6 -  CalculatorWithCounterAutoAgregationInterface
+задание 11.7      -  CalculatorWithCounterAutoCompositeInterfaceMain
+
+задание 12.1-12.7 - CalculatorWithMemory
+задание 12.8      - CalculatorWithMemoryMain
+
+задание 13.1-13.4 - CalculatorWithCounterAutoDecorator и CalculatorWithMemoryDecorator 
+задание 13.5      - CalculatorDecoratorMain
