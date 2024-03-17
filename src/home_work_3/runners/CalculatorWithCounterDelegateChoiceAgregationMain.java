@@ -28,7 +28,7 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
         CalculatorWithCounterAutoChoiceAgregation[] calculatorAutoChoiceArray = {calculatorAutoChoice1, calculatorAutoChoice2, calculatorAutoChoice3};
         for (CalculatorWithCounterAutoChoiceAgregation calculatorChoice : calculatorAutoChoiceArray) {
             double resultCaclChoice = getResultExpression(calculatorChoice);
-            printResultExpression(resultCaclChoice, calculatorChoice);
+            System.out.println(printResultExpression(resultCaclChoice, calculatorChoice));
         }
     }
 
@@ -49,8 +49,11 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
      * Метод печати результата выражения 4.1 + 15 * 7 + (28 / 5) ^ 2 и количество выполненных операций операций
      * @param result результат вычисления выражения
      * @param calculatorAuto объект класса CalculatorWithCounterAutoChoiceAgregation
+     * @return отфороматированная строка с результатом вычисления
      */
-    public static void printResultExpression(double result, CalculatorWithCounterAutoChoiceAgregation calculatorAuto) {
-        System.out.printf("4.1 + 15 * 7 + (28 / 5) ^ 2 =  %.4f. Количество операций = %d %n", result, calculatorAuto.getCountOperation());
+    public static String printResultExpression(double result, CalculatorWithCounterAutoChoiceAgregation calculatorAuto) {
+        String printResult = "";
+        printResult = String.format("4.1 + 15 * 7 + (28 / 5) ^ 2 =  %.4f. Количество операций = %d", result, calculatorAuto.getCountOperation());
+        return printResult;
     }
 }

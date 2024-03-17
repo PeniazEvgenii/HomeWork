@@ -24,7 +24,7 @@ public class CalculatorWithCounterAutoCompositeInterfaceMain {
         CalculatorWithCounterAutoAgregationInterface[] calculatorInterface = {calculatorAgregInterface1, calculatorAgregInterface2, calculatorAgregInterface3};
         for (CalculatorWithCounterAutoAgregationInterface calculatorAuto : calculatorInterface) {
             double result = getResultExpression(calculatorAuto);
-            printResultExpression(result, calculatorAuto);
+            System.out.println(printResultExpression(result, calculatorAuto));
         }
     }
 
@@ -45,9 +45,12 @@ public class CalculatorWithCounterAutoCompositeInterfaceMain {
      * Метод печати результата выражения 4.1 + 15 * 7 + (28 / 5) ^ 2 и количество выполненных операций операций
      * @param result результат вычисления выражения
      * @param calculatorInterface объект класса CalculatorWithCounterAutoAgregationInterface
+     * @return отфороматированная строка с результатом вычисления
      */
-    public static void printResultExpression(double result, CalculatorWithCounterAutoAgregationInterface calculatorInterface) {
-        System.out.printf("4.1 + 15 * 7 + (28 / 5) ^ 2 =  %.4f. Количество операций = %d %n", result, calculatorInterface.getCountOperation());
+    public static String printResultExpression(double result, CalculatorWithCounterAutoAgregationInterface calculatorInterface) {
+        String printResult = "";
+        printResult = String.format("4.1 + 15 * 7 + (28 / 5) ^ 2 =  %.4f. Количество операций = %d", result, calculatorInterface.getCountOperation());
+        return printResult;
     }
 
 }
