@@ -31,3 +31,5 @@
 
 задание 13.1-13.4 - CalculatorWithCounterAutoDecorator и CalculatorWithMemoryDecorator 
 задание 13.5      - CalculatorDecoratorMain
+
+задание 14          CalculatorStringExpressionMain -
