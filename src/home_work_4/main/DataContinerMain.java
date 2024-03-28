@@ -1,13 +1,10 @@
 package home_work_4.main;
 
 import home_work_4.ComparatorForNumber;
-import home_work_4.ComparatorForString;
+import home_work_4.ComparatorForStringLength;
 import home_work_4.DataContainer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class DataContinerMain {
     public static void main(String[] args) {
@@ -68,8 +65,8 @@ public class DataContinerMain {
         System.out.println(data1.add("Ва2"));
 
         System.out.println("печать старь   " + data1);
-        ComparatorForString comparatorForString = new ComparatorForString();
-        data1.sort(comparatorForString);
+        ComparatorForStringLength comparatorForStringLength = new ComparatorForStringLength();
+        data1.sort(comparatorForStringLength);
         System.out.println("печать новый   " + data1);
 
         System.out.println(PPP);
@@ -77,7 +74,13 @@ public class DataContinerMain {
         System.out.println(PPP);
         List<String> list = new ArrayList<>();
         ComparatorForNumber comparator2 = new ComparatorForNumber();
-        PPP.sort(comparator2);
+        ///PPP.sort(comparator2);
         System.out.println(PPP);
+       // DataContainer.sort(PPP);
+
+        DataContainer.sort(PPP, comparator2);
+        System.out.println(PPP);
+
+
     }
 }

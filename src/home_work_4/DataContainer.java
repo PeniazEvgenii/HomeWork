@@ -1,9 +1,5 @@
 package home_work_4;
 
-import home_work_2.sorts.SortsMain;
-import home_work_2.utils.ArraysUtils;
-import home_work_2.utils.SortsUtils;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
@@ -73,9 +69,8 @@ public class DataContainer <T> {
      * @return возвращает номер позиции, в которую вставлены данные. Возвращет -1, если элемент добавить нельзя
      */
     public int add(T item) {
-        int result = -1;
         if (item == null) {
-            return result;
+            return -1;
         }
         for (int i = 0; i < data.length; i++) {
             if (data[i] == null) {
@@ -83,12 +78,9 @@ public class DataContainer <T> {
                 return i;
             }
         }
-        if (result == -1) {
-            data = Arrays.copyOf(data, data.length + 1);
-            data[data.length - 1] = item;
-            result = data.length - 1;
-        }
-        return result;
+        data = Arrays.copyOf(data, data.length + 1);
+        data[data.length - 1] = item;
+        return data.length - 1;
     }
 
     /**
@@ -124,9 +116,6 @@ public class DataContainer <T> {
         }
         for (int i = index; i < data.length - 1; i++) {
             swapElement(data, i, i + 1);
-        //    T temp = data[i];
-        //    data[i] = data[i + 1];
-        //    data[i + 1] = temp;
         }
         data = Arrays.copyOf(data, data.length - 1);
         return true;
@@ -159,7 +148,6 @@ public class DataContainer <T> {
      * в методе использована сортировка типа "Шейкерная сортировка"
      * @param comparator объект Типа comparator c реализованным сравнением
      */
-
     public void sort (Comparator <? super T> comparator) {          // не понимаю, есть ограничение снизу и все работает а с <T extends Object>
        int left = 0;
        int right = data.length - 1;
@@ -168,7 +156,7 @@ public class DataContainer <T> {
             flag = 0;
 
             for (int i = left; i < right; i++) {
-                if(comparator.compare(data[i],data[i + 1]) == 1){
+                if(comparator.compare(data[i], data[i + 1]) > 0){    //==1 я добавил по имени comparator и >0 универсально
                     swapElement(data, i, i + 1);
                     flag = 1;
                 }
@@ -176,7 +164,7 @@ public class DataContainer <T> {
             right--;
 
             for (int i = right; i > left; i--) {
-                if(comparator.compare(data[i], data[i - 1]) == -1){
+                if(comparator.compare(data[i], data[i - 1]) < 0){   //== -1
                     swapElement(data, i, i - 1);
                     flag = 1;
                 }
@@ -186,7 +174,7 @@ public class DataContainer <T> {
     }
 
     /**
-     * Метод для записи значений поля data ы строку
+     * Метод для записи значений поля data в строку
      * @return строка со значениями из дата
      */
     @Override
@@ -194,23 +182,84 @@ public class DataContainer <T> {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("[");
         for (int i = 0; i < data.length; i++) {
-            if (i == data.length - 1){
-                stringBuffer.append(data[i]).append("]");
-            } else {
+            if (i != data.length - 1){
                 stringBuffer.append(data[i]).append(", ");
+            } else {
+                stringBuffer.append(data[i]);
             }
         }
+            stringBuffer.append("]");
         return stringBuffer.toString();
     }
 
 
+    /**
+     * Метод для сортировки списка DataContainer, содержащего объекты реализующие интерфейс Comparable
+     * Сортировка осуществляется методом "пузырька"
+     * @param container список, элементы которого необходимо отсортировать
+     */
+    public static<T extends Comparable<? super T>> void sort (DataContainer<T> container) {
+        if(container.getItems().length <= 1) {
+            return;
+        }
+        for (int i = 0; i < container.getItems().length; i++) {
+            for (int j = 0; j < container.getItems().length - 1; j++) {
+                if(container.getItems()[j].compareTo(container.getItems()[j + 1]) > 0) {
+                    T temp = container.getItems()[j];
+                    container.getItems()[j] = container.getItems()[j + 1];
+                    container.getItems()[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+
+    /**
+     * Метод для сортировки списка DataContainer, используя реализацию сравнения из переданного объекта comparator
+     * реализация сравнения осуществлена в методе sort {@link #sort(Comparator)}
+     * @param container список типа DataContainer, элементы которого необходимо отсортировать
+     * @param comparator объект типа comparator c реализованным сравнением
+     */
+    public static<E> void sort(DataContainer<E> container, Comparator<? super E> comparator) {
+        container.sort(comparator);
+    }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Метод проверки соответствия индекса для поля дата
+     * @param index проверяемый индекс
+     * @return true если в массиве есть элемент с индексом index, false если в массиве нет элемент с индексом index
+     */
     private boolean isIncludeIndex (int index) {
         return index < data.length;
     }
 
+    /**
+     * Метод замены двух элементо массива местами
+     * @param array массив, в котором меняем элементы
+     * @param index1 первый элемент
+     * @param index2 второй элемент
+     */
     private void swapElement(T[] array, int index1, int index2) {
         T temp = array[index1];
         array[index1] = array[index2];
