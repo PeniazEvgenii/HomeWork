@@ -1,4 +1,4 @@
-package home_work_4;
+package home_work_4.test;
 
 import java.util.*;
 
@@ -54,19 +54,22 @@ import java.util.*;
  * Данный метод будет сортировать элементы в ПЕРЕДАННОМ объекте DataContainer используя реализацию сравнения из ПЕРЕДАННОГО объекта интерфейса Comparator.
  * 13.** Реализовать в DataContainer интерфейс Iterable
  */
-public class DataContainer<T> implements Iterable<T>{
+public class DataContainerTest<T> implements Iterable<T> {
+    private static final int SIZE_INCRESE_ARRAY = 1;
     private T[] data;
+    private int size;
 
-    /**
-     * Конструктор принимающий массив
-     * @param array массив
-     */
-    public DataContainer(T[] array) {
+    public int getSize() {
+        return size;
+    }
+
+    public DataContainerTest(T[] array) {
         this.data = array;
+        size = this.data.length;
     }
 
     /**
-     * Метод для добавления данных во внутреннее поле data[]
+     * Метод для добавления данных во внутреннее поле data
      * @param item элемент для помещения в data
      * @return возвращает номер позиции, в которую вставлены данные. Возвращет -1, если элемент добавить нельзя
      */
@@ -74,19 +77,24 @@ public class DataContainer<T> implements Iterable<T>{
         if (item == null) {
             return -1;
         }
+
         for (int i = 0; i < data.length; i++) {
             if (data[i] == null) {
+                if(size < data.length){
+                    size++;
+                }
                 data[i] = item;
                 return i;
             }
         }
-        data = Arrays.copyOf(data, data.length + 1);
-        data[data.length - 1] = item;
-        return data.length - 1;
+        size++;
+        data = changeSizeArray(data, SIZE_INCRESE_ARRAY);
+        data[size - 1] = item;
+        return size - 1;
     }
 
     /**
-     * метод получает из поля data[] сохраненный объект по индексу
+     * метод получает из поля data сохраненный объект по индексу
      * @param index индекс массива
      * @return объект по номеру индекса, Null при отсутствии объекта по index
      */
@@ -99,15 +107,16 @@ public class DataContainer<T> implements Iterable<T>{
     }
 
     /**
-     * Метод возвращения массива из поля data[]
+     * Метод возвращения массива из поля data
      * @return массив
      */
     public T[] getItems(){
         return data;
     }
 
+
     /**
-     * Метод для удаление элементов из поля data[] по индексу
+     * Метод для удаление элементов из нашего поля data по индексу
      * @param index индекс удаляемого элемента
      * @return true при успешном удалении элемента, false если элемент с заданным индексом отсутствует
      */
@@ -118,12 +127,13 @@ public class DataContainer<T> implements Iterable<T>{
         for (int i = index; i < data.length - 1; i++) {
             swapElement(data, i, i + 1);
         }
-        data = Arrays.copyOf(data, data.length - 1);
+        data = changeSizeArray(data, -1);
+        size--;
         return true;
     }
 
     /**
-     * Метод для удаления элемента из поля data[] по значению
+     * Метод для удаления элемента из поля data по значению
      * @param item значение удаляемого объекта
      * @return false если передают null или нет такого элемента,возвращает true если произошло удаление данных
      */
@@ -139,8 +149,9 @@ public class DataContainer<T> implements Iterable<T>{
             }
         }
         if (countItem != 0) {
-            data = Arrays.copyOf(data, data.length - countItem);
+            data = changeSizeArray(data, -countItem);
         }
+        size -= countItem;
         return countItem > 0;
     }
 
@@ -151,7 +162,7 @@ public class DataContainer<T> implements Iterable<T>{
      */
     public void sort (Comparator <? super T> comparator) {
        int left = 0;
-       int right = data.length - 1;
+       int right = size - 1;
        int flag = 1;
         while(left < right && flag != 0) {
             flag = 0;
@@ -182,12 +193,12 @@ public class DataContainer<T> implements Iterable<T>{
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("[");
-        for (T dat : data) {
-            if (dat != null) {
-                if (stringBuffer.length() > 1) {
-                    stringBuffer.append(", ").append(dat);
+        for (int i = 0; i < size; i++) {
+            if (data[i] != null){
+                if(stringBuffer.length() > 1) {
+                    stringBuffer.append(", ").append(data[i]);
                 } else {
-                    stringBuffer.append(dat);
+                    stringBuffer.append(data[i]);
                 }
             }
         }
@@ -195,17 +206,16 @@ public class DataContainer<T> implements Iterable<T>{
         return stringBuffer.toString();
     }
 
-
     /**
      * Метод для сортировки списка DataContainer, содержащего объекты реализующие интерфейс Comparable
      * @param container список, элементы которого необходимо отсортировать
      */
-    public static<T extends Comparable<? super T>> void sort (DataContainer<T> container) {
-        if(container.getItems().length <= 1) {
+    public static<T extends Comparable<? super T>> void sort (DataContainerTest<T> container) {
+        if(container.size <= 1) {
             return;
         }
-        for (int i = 0; i < container.getItems().length; i++) {
-            for (int j = 0; j < container.getItems().length - 1; j++) {
+        for (int i = 0; i < container.size; i++) {
+            for (int j = 0; j < container.size - 1; j++) {
                 if(container.getItems()[j].compareTo(container.getItems()[j + 1]) > 0) {
                     T temp = container.getItems()[j];
                     container.getItems()[j] = container.getItems()[j + 1];
@@ -221,7 +231,7 @@ public class DataContainer<T> implements Iterable<T>{
      * @param container список типа DataContainer, элементы которого необходимо отсортировать
      * @param comparator объект типа comparator c реализованным сравнением
      */
-    public static<T> void sort(DataContainer<T> container, Comparator<? super T> comparator) {
+    public static<T> void sort(DataContainerTest<T> container, Comparator<? super T> comparator) {
         container.sort(comparator);
     }
 
@@ -231,7 +241,7 @@ public class DataContainer<T> implements Iterable<T>{
      * @return true если в массиве есть элемент с индексом index, false если в массиве нет элемент с индексом index
      */
     private boolean isIncludeIndex (int index) {
-        return index < data.length;
+        return index < size;
     }
 
     /**
@@ -246,40 +256,32 @@ public class DataContainer<T> implements Iterable<T>{
         array[index2] = temp;
     }
 
-    /**
-     *  У интерфейса Iterable<> необходимо переопределить один метод iteretor(). Метод iterator() интерфейса Iterable возвращает объект типа Iterator.
-     *  Можно, чтобы класс реализующий интерфейс Iterable, также реализовывал интерфейс Iterator. Можно использовать вложенный класс, реализующий интерфейс Iterator.
-     *  В данном случае реализация через анонимный класс (предложила IDE).
-     */
+    private T[] changeSizeArray(T[] array, int valueChange){
+        return Arrays.copyOf(array, data.length + valueChange);
+    }
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
-            private int index = -1;
+        return new Iterat();
+    }
 
-            /**
-             * Метод определения наличия следующего элемента в поле data[]
-             * @return true если имеется следующий элемент, false если отсутствует
-             */
-            @Override
-            public boolean hasNext() {
-                return index < data.length - 1 ;
-            }
+    private class Iterat implements Iterator <T> {
+        private int index = -1;
 
-            /**
-             * Метод получения элемента элемента из поля data[]
-             * @return
-             */
-            @Override
-            public T next() {
-                index++;
-                if(index >= 0 && index < data.length) {
-                    return data[index];
-                } else {
-                    throw new NoSuchElementException();
-                }
+        @Override
+        public boolean hasNext() {
+            return index < size - 1 ;
+        }
+
+        @Override
+        public T next() {
+            index++;
+            if(index >= 0 && index < size) {
+                return data[index];
+            } else {
+                throw new NoSuchElementException();
             }
-        };
+        }
     }
 }
 

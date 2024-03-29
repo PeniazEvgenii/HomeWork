@@ -10,6 +10,7 @@ public class DataContainerDoubleMain {
         Double[] array = {1.5, null, 34.2, null, null, null};
 
         DataContainer<Double> container = new DataContainer<>(array);
+        System.out.println(container);
 
         System.out.println("Добавлен элемент под индексом " + container.add(160.1));
         System.out.println("Добавлен элемент под индексом " + container.add(777.34));
@@ -32,9 +33,7 @@ public class DataContainerDoubleMain {
         System.out.println(container.get(5));
         System.out.println(container.get(100));
 
-        Double[] arrayNew = container.getItems();
-        System.out.println("Получен из сontainer " + Arrays.toString(arrayNew));
-
+        System.out.println("Получен из сontainer " + Arrays.toString(container.getItems()));
 
         System.out.println("\nУдаление элементов по индексу");
         System.out.println("до удаления элементов " + container);
@@ -51,7 +50,29 @@ public class DataContainerDoubleMain {
         System.out.println("После удаления элементов " + container);
 
         ComparatorForNumber comparatorForNumber = new ComparatorForNumber();
-        container.sort(comparatorForNumber);
+
+        /*
+         *   System.out.println("До сортировки элементов " + container);
+         *   container.sort(comparatorForNumber);
+         *   System.out.println("После сортировки элементов " + container);
+         */
+
+        /*
+         * System.out.println("сортировка статическим методом sort(DataContainer<T> container)");
+         * System.out.println("До сортировки элементов " + container);
+         * DataContainer.sort(container);
+         * System.out.println("После сортировки элементов " + container);
+         */
+
+        System.out.println("\nсортировка статическим методом DataContainer<T> container, Comparator<? super T> comparator");
+        System.out.println("До сортировки элементов " + container);
+        DataContainer.sort(container, comparatorForNumber);
         System.out.println("После сортировки элементов " + container);
+
+        System.out.println("Проверка for-each интерфейса Iterable");
+        for (Double cont : container) {
+            System.out.print(cont + " | ");
+        }
     }
+
 }

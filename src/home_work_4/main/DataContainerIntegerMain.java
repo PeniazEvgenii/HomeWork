@@ -8,11 +8,9 @@ import java.util.Arrays;
 public class DataContainerIntegerMain {
     public static void main(String[] args) {
         Integer[] array = {};
-        Integer[] array1 = {1, 2, 3, null, null, null};
         Integer[] array2 = {1, null, 3, null, null, null};
 
         DataContainer<Integer> container = new DataContainer<>(array);
-        DataContainer<Integer> container1 = new DataContainer<>(array1);
         DataContainer<Integer> container2 = new DataContainer<>(array2);
 
         System.out.println(container);
@@ -37,9 +35,7 @@ public class DataContainerIntegerMain {
         System.out.println("Элемент с индексом 5 = " + container2.get(5));
         System.out.println("Элемент с индексом 100 = " + container2.get(100));
 
-        Integer[] arrayNew = container2.getItems();
-        System.out.println("Получен из сontainer2 " + Arrays.toString(arrayNew));
-
+        System.out.println("Получен из сontainer2 " + Arrays.toString(container2.getItems()));
 
         System.out.println("\nУдаление элементов по индексу");
         System.out.println("до удаления элементов " + container);
@@ -64,8 +60,16 @@ public class DataContainerIntegerMain {
         System.out.println("После удаления элементов " + container);
 
         ComparatorForNumber comparatorForNumber = new ComparatorForNumber();
-        container.sort(comparatorForNumber);
-        System.out.println("После сортировки элементов " + container);
+        //container.sort(comparatorForNumber);
+        //DataContainer.sort(container);
+        DataContainer.sort(container, new ComparatorForNumber());
 
+        System.out.println("\nПосле сортировки элементов " + container);
+
+
+        System.out.println("Проверка for-each интерфейса Iterable");
+        for (Integer integer : container) {
+            System.out.print(integer + " | ");
+        }
     }
 }

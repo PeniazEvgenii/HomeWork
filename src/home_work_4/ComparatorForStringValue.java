@@ -2,7 +2,7 @@ package home_work_4;
 
 import java.util.Comparator;
 
-public class ComparatorForStringForValue implements Comparator<String> {
+public class ComparatorForStringValue implements Comparator<String> {
 
     /**
      * Method to compare two object, that has type String
