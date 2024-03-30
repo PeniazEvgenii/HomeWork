@@ -263,7 +263,7 @@ public class DataContainer<T> implements Iterable<T>{
              */
             @Override
             public boolean hasNext() {
-                return index < data.length - 1 ;
+                return index + 1 < data.length;
             }
 
             /**

@@ -265,7 +265,7 @@ public class DataContainerTest<T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return index < size - 1 ;
+            return index + 1 < size;
         }
 
         @Override
