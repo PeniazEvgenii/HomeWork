@@ -6,3 +6,6 @@
              - ComparatorForStringForValue
 
 Задача 10-12 - DataContainer
+
+Дополнительно в пакете test DataContainerTest, где коллекция может увеличиваться на константную величину.
+В DataContainerTestTimer описаны результаты

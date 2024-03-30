@@ -80,6 +80,11 @@ public class DataContainerStringMain {
         }
     }
 
+    /**
+     * Метод проверки наличия строки "exit" для завершения ввода данных
+     * @param text проверяемая строка
+     * @return результат проверки совпадения
+     */
     public static boolean isCheckExit(String text) {
         return "exit".equals(text);
     }

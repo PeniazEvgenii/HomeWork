@@ -59,10 +59,6 @@ public class DataContainerTest<T> implements Iterable<T> {
     private T[] data;
     private int size;
 
-    public int getSize() {
-        return size;
-    }
-
     public DataContainerTest(T[] array) {
         this.data = array;
         size = this.data.length;
@@ -77,7 +73,6 @@ public class DataContainerTest<T> implements Iterable<T> {
         if (item == null) {
             return -1;
         }
-
         for (int i = 0; i < data.length; i++) {
             if (data[i] == null) {
                 if(size < data.length){

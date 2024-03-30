@@ -165,7 +165,7 @@ public class DataContainer<T> implements Iterable<T>{
             right--;
 
             for (int i = right; i > left; i--) {
-                if(comparator.compare(data[i], data[i - 1]) < 0){   //== -1
+                if(comparator.compare(data[i], data[i - 1]) < 0){
                     swapElement(data, i, i - 1);
                     flag = 1;
                 }
@@ -180,19 +180,19 @@ public class DataContainer<T> implements Iterable<T>{
      */
     @Override
     public String toString() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("[");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
         for (T dat : data) {
             if (dat != null) {
-                if (stringBuffer.length() > 1) {
-                    stringBuffer.append(", ").append(dat);
+                if (stringBuilder.length() > 1) {
+                    stringBuilder.append(",").append(" ").append(dat);
                 } else {
-                    stringBuffer.append(dat);
+                    stringBuilder.append(dat);
                 }
             }
         }
-            stringBuffer.append("]");
-        return stringBuffer.toString();
+            stringBuilder.append("]");
+        return stringBuilder.toString();
     }
 
 
@@ -226,7 +226,7 @@ public class DataContainer<T> implements Iterable<T>{
     }
 
     /**
-     * Метод проверки соответствия индекса для поля дата
+     * Метод проверки соответствия индекса для поля data
      * @param index проверяемый индекс
      * @return true если в массиве есть элемент с индексом index, false если в массиве нет элемент с индексом index
      */
@@ -235,7 +235,7 @@ public class DataContainer<T> implements Iterable<T>{
     }
 
     /**
-     * Метод замены двух элементо массива местами
+     * Метод замены двух элементов массива местами
      * @param array массив, в котором меняем элементы
      * @param index1 первый элемент
      * @param index2 второй элемент
@@ -249,7 +249,7 @@ public class DataContainer<T> implements Iterable<T>{
     /**
      *  У интерфейса Iterable<> необходимо переопределить один метод iteretor(). Метод iterator() интерфейса Iterable возвращает объект типа Iterator.
      *  Можно, чтобы класс реализующий интерфейс Iterable, также реализовывал интерфейс Iterator. Можно использовать вложенный класс, реализующий интерфейс Iterator.
-     *  В данном случае реализация через анонимный класс (предложила IDE).
+     *  В данном случае реализация через анонимный класс (предложила IDE переопределении).
      */
 
     @Override
@@ -268,7 +268,7 @@ public class DataContainer<T> implements Iterable<T>{
 
             /**
              * Метод получения элемента элемента из поля data[]
-             * @return
+             * @return элемент поля data, при выходе за пределы массива возвращает исключение NoSuchElementException()
              */
             @Override
             public T next() {

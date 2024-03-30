@@ -20,6 +20,10 @@ public class TimerTest {
         return second;
     }
 
+    /**
+     * Метод получения разницы времени в миллисекундах между полями first и second
+     * @return промежуток времени
+     */
     public long betweenTime () {
         return (ChronoUnit.NANOS.between(first, second) / 1_000_000);
     }
