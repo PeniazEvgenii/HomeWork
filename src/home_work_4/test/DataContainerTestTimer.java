@@ -20,7 +20,7 @@ public class DataContainerTestTimer {
         DataContainerTest<Integer> cont = new DataContainerTest<>(a);
         System.out.println(cont);
 
-        System.out.println("Время выполнения метода заполнения коллекции составляет: "  + timeResult(cont, 300_000).betweenTime() + " мс");
+        System.out.println("Время выполнения метода заполнения контейнера составляет: "  + timeResult(cont, 300_000).betweenTime() + " мс");
         System.out.println("длина массива  " + cont.getItems().length);
     }
 
