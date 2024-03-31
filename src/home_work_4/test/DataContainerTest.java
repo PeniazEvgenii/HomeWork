@@ -119,7 +119,7 @@ public class DataContainerTest<T> implements Iterable<T> {
         if(!isIncludeIndex(index)) {
             return false;
         }
-        for (int i = index; i < data.length - 1; i++) {
+        for (int i = index; i < size - 1; i++) {
             swapElement(data, i, i + 1);
         }
         data = changeSizeArray(data, -1);
@@ -133,21 +133,20 @@ public class DataContainerTest<T> implements Iterable<T> {
      * @return false если передают null или нет такого элемента,возвращает true если произошло удаление данных
      */
     public boolean delete(T item) {
-        int countItem = 0;
-        for (int i = 0; i < data.length - countItem; i++) {
+        if (item == null) {
+            return false;
+        }
+        for (int i = 0; i < data.length; i++) {
             if (Objects.equals(data[i], item)) {
-               countItem++;
-               for (int j = i;  j < data.length - 1; j++) {
-                   swapElement(data, j,j + 1);
-               }
-               i--;
+                for (int j = i;  j < data.length - 1; j++) {
+                    swapElement(data, j,j + 1);
+                }
+                data = Arrays.copyOf(data, data.length - 1);
+                size--;
+                return true;
             }
         }
-        if (countItem != 0) {
-            data = changeSizeArray(data, -countItem);
-        }
-        size -= countItem;
-        return countItem > 0;
+        return false;
     }
 
     /**

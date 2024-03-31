@@ -23,7 +23,10 @@ public class DataContainerStringMain {
      *  } while (!isCheckExit(text));
      */
         System.out.println("Добавлен элемент под индексом " + container.add("я"));
+        System.out.println("Добавлен элемент под индексом " + container.add("я"));
+        System.out.println("Добавлен элемент под индексом " + container.add("я"));
         System.out.println("Добавлен элемент под индексом " + container.add("777.34332"));
+        System.out.println("Добавлен элемент под индексом " + container.add("изучаю"));
         System.out.println("Добавлен элемент под индексом " + container.add("изучаю"));
         System.out.println("Добавлен элемент под индексом " + container.add("JAVA"));
         System.out.println("Добавлен элемент под индексом " + container.add("i"));
@@ -34,6 +37,7 @@ public class DataContainerStringMain {
         System.out.println("Добавлен элемент под индексом " + container.add("hell"));
         System.out.println("Добавлен элемент под индексом " + container.add("hello"));
         System.out.println("Добавлен элемент под индексом " + container.add("umberrrrrr"));
+        System.out.println("Добавлен элемент под индексом " + container.add("55.2"));
         System.out.println("Добавлен элемент под индексом " + container.add("55.2"));
 
         System.out.println(container);
@@ -56,8 +60,10 @@ public class DataContainerStringMain {
         System.out.println("\nУдаление элементов по значению");
         System.out.println("до удаления элементов " + container);
         System.out.println(container.delete("я"));
+        System.out.println(container.delete("я"));
         System.out.println(container.delete("изучаю"));
         System.out.println(container.delete("Как домашка"));
+        System.out.println(container.delete("55.2"));
         System.out.println("После удаления элементов " + container);
 
         ComparatorForStringLength comparatorForStringLength = new ComparatorForStringLength();

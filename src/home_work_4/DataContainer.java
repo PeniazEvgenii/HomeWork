@@ -128,20 +128,19 @@ public class DataContainer<T> implements Iterable<T>{
      * @return false если передают null или нет такого элемента,возвращает true если произошло удаление данных
      */
     public boolean delete(T item) {
-        int countItem = 0;
-        for (int i = 0; i < data.length - countItem; i++) {
+        if (item == null) {
+            return false;
+        }
+        for (int i = 0; i < data.length; i++) {
             if (Objects.equals(data[i], item)) {
-               countItem++;
-               for (int j = i;  j < data.length - 1; j++) {
-                   swapElement(data, j,j + 1);
-               }
-               i--;
+                for (int j = i;  j < data.length - 1; j++) {
+                    swapElement(data, j,j + 1);
+                }
+                data = Arrays.copyOf(data, data.length - 1);
+                return true;
             }
         }
-        if (countItem != 0) {
-            data = Arrays.copyOf(data, data.length - countItem);
-        }
-        return countItem > 0;
+        return false;
     }
 
     /**

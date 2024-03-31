@@ -27,14 +27,17 @@ public class DataContainerTestMain {
         cont.add(1422);
         System.out.println(cont.get(2));
 
-        System.out.println(cont);
-
+        System.out.println("до удаления " + cont);
         System.out.println(cont.delete(Integer.valueOf(13)));
+        System.out.println(cont.delete(Integer.valueOf(13)));
+        System.out.println(cont.delete(Integer.valueOf(111)));
+        System.out.println("после удаления " + cont);
 
         cont.sort(new ComparatorForNumber());
         //DataContainerTest.sort(cont);
-        //DataContainerTest.sort(cont, new ComparatorForNumber());
+        // DataContainerTest.sort(cont, new ComparatorForNumber());
         System.out.println("отсортированный массив " + cont);
+
         for (Integer integer : cont) {
             System.out.print(integer + " |");
         }
