@@ -3,19 +3,25 @@ package home_work_1;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class NameTwo {
+public class NameTwo implements ICommunicationPrinter {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите ваше имя");
         String name = console.nextLine();
+        NameTwo two = new NameTwo();
+        System.out.println(two.welcom(name));
+    }
 
+    @Override
+    public String welcom(String name) {
+        String result = "";
         if (Objects.equals(name.toLowerCase(), "вася")) {
-            System.out.println("Привет");
-            System.out.println("Я тебя так долго ждал");
+            result = "Привет!\nЯ тебя так долго ждал";
         } else if (Objects.equals(name.toLowerCase(), "анастасия")) {
-            System.out.println("Я тебя так долго ждал");
+            result = "Я тебя так долго ждал";
         } else {
-            System.out.println("Добрый день, а вы кто?");
+            result = "Добрый день, а вы кто?";
         }
+        return result;
     }
 }

@@ -37,7 +37,7 @@ public class DataContainerDoubleMain {
 
         System.out.println("\nУдаление элементов по индексу");
         System.out.println("до удаления элементов " + container);
-        System.out.println(container.delete(0));
+        System.out.println(container.delete(-1));
         System.out.println(container.delete(4));
         System.out.println(container.delete(5));
         System.out.println("После удаления элементов " + container);

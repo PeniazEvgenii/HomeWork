@@ -235,7 +235,7 @@ public class DataContainerTest<T> implements Iterable<T> {
      * @return true если в массиве есть элемент с индексом index, false если в массиве нет элемент с индексом index
      */
     private boolean isIncludeIndex (int index) {
-        return index < size;
+        return index < size && index >= 0;
     }
 
     /**

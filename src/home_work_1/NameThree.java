@@ -2,20 +2,27 @@ package home_work_1;
 
 import java.util.Scanner;
 
-public class NameThree {
+public class NameThree implements ICommunicationPrinter{
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите ваше имя");
         String name = console.nextLine();
+        NameThree three = new NameThree();
+        System.out.println(three.welcom(name));
+    }
 
+    @Override
+    public String welcom(String name) {
+        String result = "";
         switch (name.toLowerCase()) {
             case "вася":
-                System.out.println("Привет");
+                result = "Привет!\n";
             case "анастасия":
-                System.out.println("Я тебя так долго ждал");
+                result += "Я тебя так долго ждал";
                 break;
             default:
-                System.out.println("Добрый день, а вы кто?");
+                result = "Добрый день, а вы кто?";
         }
+        return result;
     }
 }
