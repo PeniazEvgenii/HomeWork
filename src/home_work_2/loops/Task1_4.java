@@ -27,18 +27,27 @@ public class Task1_4 {
             }
         } while(true);
 
+
+        long resultBefore = getNumberBeforeOverflow(value);
+        System.out.println("Значение до переполнения: " + resultBefore);
+        System.out.println("Значение после переполнения: " + resultBefore * value);
+    }
+
+    /**
+     * Метод для поиска значение до переполнения при умножении 1 на число
+     * @param value умножаемое число
+     * @return значение до переполнения
+     */
+    public static long getNumberBeforeOverflow(int value){
         long a = 1;
-
+        long tempResult;
         while (true){
-            long tempResult = a;
+            tempResult = a;
             a = a * value;
-
             if (tempResult != (a / value)) {
-                System.out.println("Произошло переполнение");
-                System.out.println("Значение до переполнения: " + tempResult);
-                System.out.println("Значение после переполнения: " + a);
                 break;
             }
         }
+        return tempResult;
     }
 }

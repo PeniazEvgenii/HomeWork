@@ -13,13 +13,13 @@ public class Sleeping {
         }
     }
 
+    /**
+     * Метод определения необходимости идти на работу
+     * @param weekday true - если рабочий, false - если выходной
+     * @param vokation true - если отпуск, false - если нет отпуска
+     * @return true - неоходимо идти на работу, false - спим дальше
+     */
     public static boolean sleepIn (boolean weekday, boolean vokation) {
-        boolean rest = false;
-
-        if (!weekday || vokation) {
-            rest = true;
-        }
-
-        return rest;
+        return !weekday || vokation;
     }
 }

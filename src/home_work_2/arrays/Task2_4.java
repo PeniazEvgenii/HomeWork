@@ -46,8 +46,12 @@ public class Task2_4 {
         System.out.println("Сумма цифр массива = " + sumDigitArray);
     }
 
-
-    public static int getSumEvenPositive (int[] array){
+    /**
+     * Метод получения суммы четных положительных элементов массива
+     * @param array массив
+     * @return сумма четных положительных элементов
+     */
+    public static int getSumEvenPositive(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0 && array[i] > 0) {
@@ -57,8 +61,12 @@ public class Task2_4 {
         return sum;
     }
 
-
-    public static int getMaxNumEvenIndex (int[] array) {
+    /**
+     * Метод нахождения максимального из элементов массива с четными индексами
+     * @param array массив
+     * @return максимальный из элементов массива с четными индексами
+     */
+    public static int getMaxNumEvenIndex(int[] array) {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
             if (i % 2 == 0 && array[i] > max) {
@@ -68,24 +76,41 @@ public class Task2_4 {
         return max;
     }
 
-
-    public static String getElementBeforeAverage (int[] array){
+    /**
+     *  Метод нахождения элементов массива, которые меньше среднего арифметического
+     * @param array массив
+     * @return строка с элементами меньше среднего
+     */
+    public static String getElementBeforeAverage(int[] array){
         double sum = 0;
         for (int i : array) {
             sum += i;
         }
         double average = sum / array.length;
         String elements = "";
+        boolean first = true;
         for (int i : array) {
             if (i < average){
-                elements += i + " ";
+                if(first){
+                    elements += i;
+                    first = false;
+                    continue;
+                }
+                elements += " " + i;
             }
         }
         return elements;
     }
 
-
-    public static String getMinTwoElements (int[] array){
+    /**
+     * Метод получения двух наименьших (минимальных) элемента массива
+     * @param array массив
+     * @return строка с двумя элементами, если длина массива меньше 2 - возвращает "-1"
+     */
+    public static String getMinTwoElements(int[] array){
+        if(array.length < 2){
+            return "-1";
+        }
         int minFirst = array[0];
         int minSecond = array[0];
         int indexMinFirst = 0;
@@ -96,6 +121,9 @@ public class Task2_4 {
                 indexMinFirst = i;
             }
         }
+        if(indexMinFirst == 0){
+            minSecond = array[1];
+        }
         for (int i = 0; i < array.length; i++) {
             if(minSecond > array[i] && i != indexMinFirst) {
                 minSecond = array[i];
@@ -104,8 +132,16 @@ public class Task2_4 {
         return minFirst + " " + minSecond;
     }
 
+    /**
+     * Метод получения двух минимальных элементов массива
+     * @param array массив
+     * @return строка с двумя минимальными элементами, если длина массива меньше 2 - возвращает "-1"
+     */
 
-    public static String getMinTwoElements2 (int[] array){
+    public static String getMinTwoElements2(int[] array){
+        if(array.length < 2){
+            return "-1";
+        }
         int indexMinFirst;
         int indexMinSecond;
 
@@ -134,34 +170,50 @@ public class Task2_4 {
     }
 
 
+    /**
+     * Метод для сжатия массива значений принадлежащие интервалу
+     * @param array массив
+     * @param a начало интервала
+     * @param b конец интервала
+     * @return строка с сжатым массивом. Если a < 0 или b < 0 или b < a возвращает -1
+     */
     public static String toSqueezeArray(int[] array, int a, int b) {
 
         int[] arrayTemp = new int[array.length];
         System.arraycopy(array, 0, arrayTemp, 0, array.length);
 
         if (a < 0 || b < 0 || b < a) {
-            System.out.println("Введены некорректные данные начала и конца границы массива");
-            System.exit(1);
+            return "-1";
         }
-
-        for (int i = 0; i < arrayTemp.length; i++) {
+        int count = 0;
+        for (int i = 0; i < arrayTemp.length - count; i++) {
             if(arrayTemp[i] >= a && arrayTemp[i] <= b) {
                 for (int j = i; j < arrayTemp.length - 1; j++) {
                     arrayTemp[j] = arrayTemp[j + 1];
                 }
                 arrayTemp[arrayTemp.length - 1] = 0;
                 i--;
+                count++;
             }
         }
-
+        boolean first = true;
         String result = "";
         for (int i : arrayTemp) {
-            result += i + " ";
+            if(first){
+                result += i;
+                first = false;
+                continue;
+            }
+            result += " " + i ;
         }
         return result;
     }
 
-
+    /**
+     * Метод расчета суммы цифр чисел массива
+     * @param array массив
+     * @return сумма цифр чисел массива
+     */
     public static int getSumDigitArray(int[] array) {
         int sumDigit = 0;
 

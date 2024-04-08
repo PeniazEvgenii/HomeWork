@@ -1,0 +1,52 @@
+home_work_1
+задание 2  - PriorityTest
+задание 4
+    4.1    - NumberOddTest
+	4.2    - NumberAverageTest
+	4.3    - NumberDivisionTest
+	4.4    - ConverterTest
+	4.5    - LetterCheckTest
+	4.6    - YearTypeTest
+задание 5      - SleepingTest
+задание 6
+	6.1    - NameOneTest
+	6.2    - NameTwoTest
+	6.3    - NameThreeTest
+задание 7      - PhoneTest
+задание 8      - BinConverterTest
+
+
+home_work_2
+
+Задание 1
+home_work_2.loops
+    1.1.1  - Task1_1Test
+    1.1.2  - Task1_1RecursTest
+    1.2    - Task1_2Test
+    1.3    - Task1_3Test
+    1.4    - Task1_4Test
+    1.5    - Task1_5Test
+Задание 2
+    2.3    - DoWhileOperationTest
+           - WhileOperationTest
+           - ForOperationTest
+           - ForEachOperationTest
+    2.4    - Task2_4Test
+
+home_work_2.utils
+    2.1    - ArraysUtilsTest
+    4.1    - SortsUtilsTest
+
+
+home_work_3
+
+home_work_3.simple
+задание 2  - CalculatorWithOperatorTest
+задание 3  - CalculatorWithMathCopyTest
+задание 4  - CalculatorWithMathExtendsTest
+
+home_work_3.additional
+задание 5-13 - CalculatorTest
+
+
+

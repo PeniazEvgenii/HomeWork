@@ -1,5 +1,7 @@
 package home_work_1;
 
+import home_work_1.api.ICommunicationPrinter;
+
 import java.util.Objects;
 import java.util.Scanner;
 

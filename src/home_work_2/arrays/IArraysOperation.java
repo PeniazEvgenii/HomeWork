@@ -2,8 +2,8 @@ package home_work_2.arrays;
 
 public interface IArraysOperation {
 
-    public abstract void getArrayConsole (int[] array);
-    public abstract void getEachSecond (int[] array);
-    public abstract void getReverseArray(int[] array);
+    String getArrayConsole (int[] array);
+    String getEachSecond (int[] array);
+    String getReverseArray(int[] array);
 
 }

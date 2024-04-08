@@ -18,12 +18,19 @@ public class NumberOdd {
             firstNum++;
         }
 
-        if (firstNum % 2 != 0) {
-            System.out.println("Число " + firstNum + " нечетное");
-        } else {
-            System.out.println("Число " + secondNum + " нечетное");
-        }
+        System.out.println("нечетное число " + checkNumberOdd(firstNum, secondNum));
     }
+
+    /**
+     * Метод нахождения нечетного числа
+     * @param firstNum первое число
+     * @param secondNum второе число
+     * @return четное число
+     */
+    public static int checkNumberOdd(int firstNum, int secondNum){
+        return firstNum % 2 != 0 ? firstNum : secondNum;
+    }
+
 
     public static void isDebugMode (String [] array) {
         for (String ar : array) {

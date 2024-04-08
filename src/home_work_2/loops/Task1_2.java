@@ -40,21 +40,50 @@ public class Task1_2 {
             return;
         }
 
-        StringBuffer stringBuffer = new StringBuffer();
-        long multiplication = 1;
-
-        while (inputNumber > 0) {
-            multiplication *= inputNumber % 10;
-            stringBuffer.append(inputNumber % 10);
-            inputNumber /= 10;
-
-            if (inputNumber % 10 != 0) {
-                stringBuffer.append(" * ");
-            } else {
-                stringBuffer.reverse().append(" = " + multiplication);
-            }
+        long result = getDigitMultiplacation(inputNumber);
+        if(result == -1) {
+            System.out.println("передано неверное значения. Необходимо число от 1 и выше");
+        } else {
+            System.out.println(printDigitMultiplacation(inputNumber, result));
         }
 
-        System.out.println(stringBuffer.toString());
+    }
+
+    /**
+     * Метод расчета произведения цифр числа
+     * @param inputNumber целое положительное число
+     * @return результат перемножения цифр числа. Результат -1, если число меньше 1;
+     */
+    public static long getDigitMultiplacation(long inputNumber) {
+        if (inputNumber < 1) {
+            return -1;
+        }
+        long multiplication = 1;
+        while (inputNumber > 0) {
+            multiplication *= inputNumber % 10;
+            inputNumber /= 10;
+        }
+        return multiplication;
+    }
+
+    /**
+     * Метод для вывода результата расчета произведения цифр числа в строку
+     * @param inputNumber  число, произведение цифр которого расчитывается
+     * @param result результат расчета произведение цифр
+     * @return строка типа  1 * 8 * 1 * 2 * 3 * 2 * 3 * 7 * 5 = 10 080
+     */
+    public static String printDigitMultiplacation(long inputNumber, long result) {
+        StringBuffer stringBuffer = new StringBuffer();
+        while (inputNumber > 0) {
+            stringBuffer.append(inputNumber % 10);
+            inputNumber /= 10;
+            if (inputNumber > 0) {
+                stringBuffer.append(" * ");
+            } else {
+                stringBuffer.reverse();
+            }
+        }
+        stringBuffer.append(" = ").append(result);
+        return stringBuffer.toString();
     }
 }

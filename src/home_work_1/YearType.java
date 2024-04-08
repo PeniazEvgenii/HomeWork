@@ -10,7 +10,7 @@ public class YearType {
         int year = getCheckInt();
         System.out.println(year);
 
-        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        if (isYearLeap(year)) {
             System.out.println(year + " високосный год");
         } else {
             System.out.println(year + " обычный год");
@@ -18,9 +18,21 @@ public class YearType {
         
     }
 
+    /**
+     * Метод проверки года на високостность
+     * @param year проверяемый год
+     * @return true - год высокостный, false - год обычный
+     */
+    public static boolean isYearLeap(int year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
+
+    /**
+     * Метод ввода числа типа int
+     * @return введенное с консоли число
+     */
     public static int getCheckInt() {
         int temp;
-
         if (console.hasNextInt()) {
             temp = console.nextInt();
         } else {
@@ -28,7 +40,6 @@ public class YearType {
             console.next();
             temp = getCheckInt();
         }
-
         return temp;
     }
 }

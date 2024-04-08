@@ -18,6 +18,11 @@ public class BinConverter {
 
     }
 
+    /**
+     * Метод для возвращения двоичного представления числа
+     * @param number число
+     * @return строка двоичного представления числа number
+     */
     public static String toBinaryString (byte number) {
         String bin = "";
         boolean minus = number < 0;

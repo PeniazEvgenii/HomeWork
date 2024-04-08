@@ -1,30 +1,56 @@
 package home_work_2.arrays;
 
+import static home_work_2.utils.ArraysUtils.arrayRandom;
+
 public class ForEachOperation implements IArraysOperation {
+
     @Override
-    public void getArrayConsole(int[] array) {
+    public String getArrayConsole(int[] array) {
+        StringBuilder stringBuilder = new StringBuilder();
+        boolean first = true;
         for (int i : array) {
-            System.out.print(i + " ");
+            if(first){
+                stringBuilder.append(i);
+                first = false;
+                continue;
+            }
+            stringBuilder.append(" ").append(i);
         }
+        return stringBuilder.toString();
     }
 
     @Override
-    public void getEachSecond(int[] array) {
+    public String getEachSecond(int[] array) {
+        StringBuilder stringBuilder = new StringBuilder();
         int index = 0;
+        boolean first = true;
         for (int i : array) {
             if (index % 2 != 0){
-                System.out.print(i + " ");
+                if(first){
+                    stringBuilder.append(i);
+                    first = false;
+                    index++;
+                    continue;
+                }
+                stringBuilder.append(" ").append(i);
             }
             index++;
         }
+        return stringBuilder.toString();
     }
 
     @Override
-    public void getReverseArray(int[] array) {
-        String temp ="";
+    public String getReverseArray(int[] array) {
+        StringBuilder stringBuilder = new StringBuilder();
+        boolean first = true;
         for (int i : array) {
-            temp = i + " " + temp;
+            if(first){
+                stringBuilder.insert(0, i);
+                first = false;
+                continue;
+            }
+            stringBuilder.insert(0, " ").insert(0, i);
         }
-        System.out.println(temp);
+        return stringBuilder.toString();
     }
 }

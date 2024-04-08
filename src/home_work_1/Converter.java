@@ -12,11 +12,29 @@ public class Converter {
         String str = console.nextLine();
 
         if ("b".equalsIgnoreCase(str)) {
-            System.out.println(number + " Кб " + "= " + number * 1024 + " б");
+            System.out.printf("%d Кб = %.1f б%n", number, kilobyteToByteConverter(number));
         } else if ("kb".equalsIgnoreCase(str)) {
-            System.out.println(number + " б " + "= " +  number / 1024.0 + " Кб");
+            System.out.printf("%d б = %.3f Кб", number, byteToKilobyteConverter(number));
         } else {
             System.out.println("Выбрана неверная величина");
         }
+    }
+
+    /**
+     * Метод конвертирования байтов в килобайты
+     * @param number значение в байт
+     * @return результат в килобайтах
+     */
+    public static double byteToKilobyteConverter(int number) {
+        return number/1024.0;
+    }
+
+    /**
+     * Метод конвертирования килобайтов в байты
+     * @param number значение в килобайтах
+     * @return результат в байтах
+     */
+    public static double kilobyteToByteConverter(int number) {
+        return number * 1024.0;
     }
 }

@@ -15,6 +15,10 @@ public class ArraysUtils {
 
     public static final int MIN_SIZE_ARRAY = 0;
 
+    /**
+     * Метод заполнения массива с консоли
+     * @return массив со значениями
+     */
     public static int[] arrayFromConsole() {
         Scanner console = new Scanner(System.in);
         boolean checkInputSize;
@@ -38,11 +42,16 @@ public class ArraysUtils {
     }
 
 
-
-    public static int[] arrayRandom (int size, int maxValueExclusion) {
+    /**
+     * Метод заполнения массива рандомными числами
+     * @param size размер массиа
+     * @param maxValueExclusion предел диапазона генерирования рандомных чисел
+     * @return массив со значениями, пустой массив если задан размер меньше 0 и диапазон меньше 1
+     */
+    public static int[] arrayRandom(int size, int maxValueExclusion) {
         if(size < MIN_SIZE_ARRAY || maxValueExclusion < 1) {
-            System.out.println("Ошибка. Указан размер меньше 0 либо диапазон случайных чисел меньше 1");
-            System.exit(1);
+            //System.out.println("Ошибка. Указан размер меньше 0 либо диапазон случайных чисел меньше 1");
+            return new int[]{};
         }
 
         int[] array = new int[size];

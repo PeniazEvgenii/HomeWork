@@ -1,5 +1,6 @@
 package home_work_2.loops;
 
+import java.beans.PropertyEditorSupport;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -31,13 +32,24 @@ public class Task1_3 {
             }
         } while (checkMinDegree);
 
-        int current = inputDegree;
-        double result = 1;
-
-        while (current > 0) {
-            result *= number;
-            current--;
-        }
+        double result = getPowerOfNumber(number, inputDegree);
         System.out.println(number + " ^ " + inputDegree + " = " + result);
+    }
+
+    /**
+     * Метод возведение числа в целую положительную степень
+     * @param number число, возводимое в степень
+     * @param inputDegree степень
+     * @return результат возведения в степень
+     */
+    public static double getPowerOfNumber(double number, int inputDegree) {
+        if(inputDegree == 0){
+            return 1;
+        }
+        double result = 1;
+        for (int i = 1; i <= inputDegree; i++) {
+            result *= number;
+        }
+        return result;
     }
 }

@@ -11,20 +11,32 @@ public class NumberDivision {
         System.out.println("Введи делитель");
         int secondNum = getCheckInt();
 
-        if (secondNum == 0) {
-            System.out.println("Деление на ноль. Запусти программу заново");
-            System.exit(0);
-        }
-
-        if (firstNum % secondNum == 0) {
-            System.out.println(firstNum + " делиться на " + secondNum);
-            System.out.println("Результат деления: частное = " + firstNum / secondNum);
+        boolean result = getResultDivision(firstNum, secondNum);
+        if(result){
+            System.out.println("числа деляться без остатка" );
         } else {
-            System.out.println(firstNum + " не делиться на " + secondNum);
-            System.out.println("Результат деления: частное = " + firstNum / secondNum + ", остаток " + firstNum % secondNum);
+            System.out.println("числа не деляться без остатка");
         }
     }
 
+    /**
+     * Метод проверки делимости без остатка одного числа на другое
+     * @param firstNum делимое
+     * @param secondNum делитель
+     * @return true - числа деляться без остатка, false - не делятся без остатка
+     */
+    public static boolean getResultDivision(int firstNum, int secondNum) {
+        if (secondNum == 0) {
+            return false;
+        }
+        return firstNum % secondNum == 0;
+    }
+
+
+    /**
+     * Метод ввода числа типа int
+     * @return введенное с консоли число
+     */
     public static int getCheckInt () {
         int temp;
 

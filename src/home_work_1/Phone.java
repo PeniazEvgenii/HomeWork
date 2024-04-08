@@ -6,11 +6,16 @@ public class Phone {
         String phoneNum = createPhoneNumber(mass);
         System.out.println(phoneNum);
     }
+
+    /**
+     * Метод вывода отформатированного номера
+     * @param arr массив с числами
+     * @return номер в формате (123) 456-7890
+     */
     public static String createPhoneNumber (int [] arr) {
         String format = "(";
 
         for (int i = 0; i < arr.length; i++) {
-
             if (i >= 0 && i <= 2) {
                 format += arr[i];
                 if (i == 2) {
@@ -24,9 +29,7 @@ public class Phone {
             } else if (i >= 6 && i <= 9) {
                 format += arr[i];
             }
-
         }
-
         return format;
     }
 }

@@ -101,6 +101,9 @@ public class CalculatorWithOperator implements ICalculator {
         if (x < 0) {
             return -1;
         }
+        if(x == 0) {
+            return 0;
+        }
         double a = x;
         while (true) {
             double temp = (x / a + a) / 2;

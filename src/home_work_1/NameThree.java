@@ -1,8 +1,10 @@
 package home_work_1;
 
+import home_work_1.api.ICommunicationPrinter;
+
 import java.util.Scanner;
 
-public class NameThree implements ICommunicationPrinter{
+public class NameThree implements ICommunicationPrinter {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите ваше имя");
