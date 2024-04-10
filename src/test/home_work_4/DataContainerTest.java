@@ -12,7 +12,7 @@ public class DataContainerTest {
 
     @Test
     public void addFirstTest() {
-        DataContainer<Integer> container = new DataContainer<>(new Integer[]{});
+        DataContainer<Integer> container = new DataContainer<>(new Integer[0]);
         int index = container.add(100);
         Assertions.assertEquals(100, container.get(index));
     }
@@ -56,13 +56,13 @@ public class DataContainerTest {
 
     @Test
     public void getItemsEmptyArrayTest() {
-        DataContainer<Integer> container = new DataContainer<>(new Integer[]{});
+        DataContainer<Integer> container = new DataContainer<>(new Integer[0]);
         Assertions.assertArrayEquals(new Integer[]{}, container.getItems());
     }
 
     @Test
     public void deleteByIndexTest() {
-        DataContainer<Integer> container = new DataContainer<>(new Integer[]{});
+        DataContainer<Integer> container = new DataContainer<>(new Integer[0]);
         int index = container.add(10);
         container.delete(index);
         Assertions.assertNull(container.get(index));
@@ -71,7 +71,7 @@ public class DataContainerTest {
 
     @Test
     public void deleteByItemTest() {
-        DataContainer<Integer> container = new DataContainer<>(new Integer[]{});
+        DataContainer<Integer> container = new DataContainer<>(new Integer[0]);
         int index = container.add(10);
         container.delete(Integer.valueOf(10));
         Assertions.assertNull(container.get(index));

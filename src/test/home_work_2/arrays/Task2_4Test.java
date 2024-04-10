@@ -26,7 +26,7 @@ public class Task2_4Test {
     @DisplayName("Test3 getSumEvenPositive empty array")
     @Test
     public void getSumEvenPositiveTest3() {
-        int result = Task2_4.getSumEvenPositive(new int[]{});
+        int result = Task2_4.getSumEvenPositive(new int[0]);
         Assertions.assertEquals(0, result);
     }
 
@@ -81,7 +81,7 @@ public class Task2_4Test {
     @DisplayName("Test3 getElementBeforeAverage with empty array")
     @Test
     public void getElementBeforeAverageTest3() {
-        String result = Task2_4.getElementBeforeAverage(new int[]{});
+        String result = Task2_4.getElementBeforeAverage(new int[0]);
         Assertions.assertEquals("", result);
     }
 
@@ -105,7 +105,7 @@ public class Task2_4Test {
     @DisplayName("Test3 getMinTwoElementsTest with empty array")
     @Test
     public void getMinTwoElementsTest3() {
-        String result = Task2_4.getMinTwoElements(new int[]{});
+        String result = Task2_4.getMinTwoElements(new int[0]);
         Assertions.assertEquals("-1", result);
     }
 
@@ -128,7 +128,7 @@ public class Task2_4Test {
     @DisplayName("Test2 toSqueezeArray with empty array")
     @Test
     public void toSqueezeArrayTest2() {
-        String result2 = Task2_4.toSqueezeArray(new int[]{},3, 8);
+        String result2 = Task2_4.toSqueezeArray(new int[0],3, 8);
         Assertions.assertEquals("", result2);
     }
 
@@ -146,6 +146,6 @@ public class Task2_4Test {
     @DisplayName("Test2 getSumDigitArray method empty array")
     @Test
     public void getSumDigitArrayTest2() {
-       Assertions.assertEquals(0, Task2_4.getSumDigitArray(new int[]{}));
+       Assertions.assertEquals(0, Task2_4.getSumDigitArray(new int[0]));
     }
 }

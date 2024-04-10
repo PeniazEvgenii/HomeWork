@@ -18,7 +18,7 @@ public class SortsUtilsTest {
     @DisplayName("Test sort with empty and the same array")
     @Test
     public void sortTest2() {
-        Assertions.assertArrayEquals(new int[]{}, SortsUtils.sort(new int[]{}));
+        Assertions.assertArrayEquals(new int[]{}, SortsUtils.sort(new int[0]));
         Assertions.assertArrayEquals(new int[]{10}, SortsUtils.sort(new int[]{10}));
         Assertions.assertArrayEquals(new int[]{1,1,1,1}, SortsUtils.sort(new int[]{1,1,1,1}));
         Assertions.assertArrayEquals(new int[]{0,0,0,0}, SortsUtils.sort(new int[]{0,0,0,0}));
@@ -44,7 +44,7 @@ public class SortsUtilsTest {
     @DisplayName("Test shake with empty and the same array")
     @Test
     public void shakeTest2() {
-        Assertions.assertArrayEquals(new int[]{}, SortsUtils.shake(new int[]{}));
+        Assertions.assertArrayEquals(new int[]{}, SortsUtils.shake(new int[0]));
         Assertions.assertArrayEquals(new int[]{10}, SortsUtils.shake(new int[]{10}));
         Assertions.assertArrayEquals(new int[]{1,1,1,1}, SortsUtils.shake(new int[]{1,1,1,1}));
         Assertions.assertArrayEquals(new int[]{0,0,0,0}, SortsUtils.shake(new int[]{0,0,0,0}));
