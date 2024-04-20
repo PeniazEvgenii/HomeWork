@@ -1,4 +1,4 @@
-package home_work_5.generate.resourses;
+package home_work_5.generate;
 
 import java.io.IOException;
 import java.nio.file.Files;

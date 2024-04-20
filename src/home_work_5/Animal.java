@@ -1,6 +1,8 @@
 package home_work_5;
 
-public class Animal {
+import home_work_5.utils.ComparatorUtils;
+
+public class Animal implements Comparable<Animal>{
     private final String nick;
     private final int age;
 
@@ -31,5 +33,10 @@ public class Animal {
 
     private boolean isValidAge(int age) {
         return age >= 1 && age <= 15;
+    }
+
+    @Override
+    public int compareTo(Animal a) {
+       return ComparatorUtils.compare(this, a);
     }
 }
