@@ -37,6 +37,6 @@ public class Animal implements Comparable<Animal>{
 
     @Override
     public int compareTo(Animal a) {
-       return ComparatorUtils.compare(this, a);
+       return ComparatorUtils.compareByAge(this, a);
     }
 }

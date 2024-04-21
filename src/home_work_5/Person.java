@@ -61,7 +61,7 @@ public class Person implements Comparable<Person> {
 
    @Override
    public int compareTo(Person p) {
-       return ComparatorUtils.compare(this, p);
+       return ComparatorUtils.compareByLengthPass(this, p);
       // return password.length() - p.password.length();
    }
 }

@@ -1,8 +1,6 @@
 package home_work_5.utils;
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class OperationsOfCollect {
@@ -10,27 +8,26 @@ public class OperationsOfCollect {
     public static<T> String operationsOfCollect(Collection<T> collect, Comparator<? super T> comparator) {
         StringBuilder result = new StringBuilder();
 
-        long result1 = sortWithStream(collect);
-        result.append(getStringResult("Сортировка", result1));
+        long start1 = System.currentTimeMillis();
+        List<T> list = sortWithStream(collect);
+        long end1 = System.currentTimeMillis();
+        result.append(getStringResult("Сортировка по одному полю", end1 - start1));
 
-        long result2 = sortWithStreamComparator(collect, comparator);
-        result.append(getStringResult("Сортировка comparator", result2));
+        long start2 = System.currentTimeMillis();
+        List<T> list1 = sortWithStreamComparator(collect, comparator);
+        long end2 = System.currentTimeMillis();
+        result.append(getStringResult("Сортировка по двум полям", end2 - start2));
 
-        Iterator<T> iterator = collect.iterator();
-        long start3 = System.currentTimeMillis();
-        T t;
-        while (iterator.hasNext()){
-            t = iterator.next();
-        }
-        long end3 = System.currentTimeMillis();
-        result.append(getStringResult("Итерирование", end3 - start3));
-
+        long result3 = getTimeIterator(collect);
+        result.append(getStringResult("Итерирование", result3));
 
         long result4 = clearCollection(collect);
         result.append(getStringResult("Удаление элементов итератором", result4));
 
         return result.toString();
     }
+
+
     /**
      * Метод вывода результирующей строки
      * @param nameOperation строка с именем операции
@@ -41,34 +38,31 @@ public class OperationsOfCollect {
         return String.format("Операция: %s. Заняла %d мс%n", nameOperation,result);
     }
 
+
     /**
      * Метод сортировки коллекции в stream()
-     * @param collect коллекция
+     * @param collects коллекция
      * @return время сортировки
      */
-    public static<T> long sortWithStream(Collection<T> collect) {
-        long start = System.currentTimeMillis();
-        collect.stream()
+    public static<T> List<T> sortWithStream(Collection<T> collects) {
+        return collects.stream()
                 .sorted()
                 .collect(Collectors.toList());
-        long end = System.currentTimeMillis();
-        return end - start;
     }
+
 
     /**
      * Метод сортировки коллекции в stream() переданным компоратором
-     * @param collect коллекция
+     * @param collects коллекция
      * @param comparator компаратор
      * @return время сортировки
      */
-    public static<T> long sortWithStreamComparator(Collection<T> collect, Comparator<? super T> comparator) {
-        long start = System.currentTimeMillis();
-        collect.stream()
+    public static<T> List<T> sortWithStreamComparator(Collection<T> collects, Comparator<? super T> comparator) {
+        return collects.stream()
                 .sorted(comparator)
                 .collect(Collectors.toList());
-        long end = System.currentTimeMillis();
-        return end - start;
     }
+
 
     /**
      * метод очистки коллекции итератором
@@ -86,4 +80,38 @@ public class OperationsOfCollect {
         long end = System.currentTimeMillis();
         return end - start;
     }
+
+    /**
+     * метод итерирования коллекции
+     * @param collects коллекция
+     * @return время итерирования
+     */
+    public static<T> long getTimeIterator(Collection<T> collects) {
+        Iterator<T> iterator = collects.iterator();
+        long start = System.currentTimeMillis();
+        T t;
+        while (iterator.hasNext()){
+            t = iterator.next();
+        }
+        long end = System.currentTimeMillis();
+        return end - start;
+    }
+
+    /**
+     * метод итерирования коллекции List с помощью for(;;)
+     * @param collects коллекция
+     * @return время итерирования
+     */
+    public static<T> long getTimeIteratorFor(List<T> collects) {
+        long start = System.currentTimeMillis();
+        int size = collects.size();
+        T t;
+        for(int i = 0; i < size; i++) {
+            t = collects.get(i);
+        }
+        long end = System.currentTimeMillis();
+        return end - start;
+    }
+
+
 }
