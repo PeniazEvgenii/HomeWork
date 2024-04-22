@@ -1,0 +1,25 @@
+1.1 - Person
+1.2 - Animal
+
+2-4 - пакет generate :
+                   - AgeGenerate
+                   - NameAnimalGenerate
+                   - NameGenerate
+                   - NickGenerate
+                   - StringGenerate
+                   - PasswordGenerate
+5 - пакет comparator
+                   - ComparatorByAgeAnimal
+                   - ComparatorByAgeAnimalThanNickAnimal
+                   - ComparatorByPassLength
+                   - ComparatorByPassThanNick
+
+6.0 - Main6_0
+6.1 - Main6.1
+6.2 - AdditionCollections
+6.3.2 - SortCollection
+6.4 - Main6_0
+      Main6.1
+      OperationsOfCollect
+
+

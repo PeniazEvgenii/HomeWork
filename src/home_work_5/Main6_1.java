@@ -16,7 +16,7 @@ public class Main6_1 {
         List<Person> personArrayList = new ArrayList<>();
         List<Person> personLinkedList = new LinkedList<>();
         Set<Person> personHashSet = new HashSet<>();
-        Set<Person> personTreeSet = new TreeSet<>(ComparatorUtils::compare);  //с Comarable<> по длине пароля, добавляет только с индивидуальной длинной???
+        Set<Person> personTreeSet = new TreeSet<>(ComparatorUtils::compare);  //с Comarable<> по длине пароля, добавляет только с индивидуальной длинной
 
 
         long timeAddArray = AdditionCollections.addCollectionPerson(personArrayList);

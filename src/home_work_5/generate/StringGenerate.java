@@ -1,18 +1,12 @@
 package home_work_5.generate;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
+
 import java.util.Random;
 import java.util.stream.Collectors;
 
 public class StringGenerate {
     public static final String RUSSIAN_ALPHABET = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-    public static final List<String> NAMES_OF_PEOPLE = List.of("Алексей", "Андрей", "Артемий", "Виктор", "Никита", "Даниил", "Денис", "Егор", "Игорь", "Лев", "Сергей", "Дмитрий", "Илья");
-    public static final List<String> NAMES_OF_ANIMAL = List.of("Мурка", "Зевс", "Аполон", "Бруклин", "Лео", "Зефир", "Риччи", "Умка", "Мерлин", "Молли", "Лексус", "Альфа", "Джеки","Бакс");
 
-    // public static Random random = new Random();
 
     /**
      * Метод получения строки из случайного набора символов (таблица ASCII [48-122] символы)
@@ -24,7 +18,6 @@ public class StringGenerate {
                 .limit(10)
                 .mapToObj(p -> (char) p)
                 .map(Object::toString)
-                // .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .collect(Collectors.joining());
         return name;
     }
@@ -41,8 +34,6 @@ public class StringGenerate {
                 .mapToObj(p -> (char) p)
                 .map(Object::toString)
                 .collect(Collectors.joining());
-        //.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-        //.toString();
     }
 
     /**
@@ -65,7 +56,7 @@ public class StringGenerate {
     public static String getStringEngCharRandom() {
         Random random = new Random();
         int sizeString = 10;
-        return random.ints(65, 122)
+        return random.ints(65, 123)
                 .filter(p -> p < 90 || p > 96)
                 .limit(sizeString)
                 .mapToObj(p -> (char) p)

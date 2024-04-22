@@ -17,6 +17,7 @@ public class AdditionCollections {
         long start = System.currentTimeMillis();
         for(int i = 0; i < 100_000; i++) {
             b = collect.add(new Person(StringGenerate.getStringEngCharRandom(), PasswordGenerate.getPassword(), NameGenerate.getRusNameFromFile()));
+            System.out.println(b);
             if (!b) {
                 i--;
             }

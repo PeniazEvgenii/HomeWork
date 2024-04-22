@@ -10,8 +10,6 @@ import java.util.Random;
 public class NameGenerate {
     public static final List<String> NAMES_OF_PEOPLE = List.of("Алексей", "Андрей", "Артемий", "Виктор", "Никита", "Даниил", "Денис", "Егор", "Игорь", "Лев", "Сергей", "Дмитрий", "Илья");
 
-    // public static Random random = new Random();
-
     /**
      * Метод получения случайного реального имени из списка имен {@link #NAMES_OF_PEOPLE}
      *

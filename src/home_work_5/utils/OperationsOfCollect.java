@@ -112,6 +112,4 @@ public class OperationsOfCollect {
         long end = System.currentTimeMillis();
         return end - start;
     }
-
-
 }
