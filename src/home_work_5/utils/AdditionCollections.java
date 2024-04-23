@@ -13,14 +13,9 @@ public class AdditionCollections {
      * @param collect коллекци для заполнения
      */
     public static long addCollectionPerson(Collection<Person> collect){
-        boolean b;
         long start = System.currentTimeMillis();
         for(int i = 0; i < 100_000; i++) {
-            b = collect.add(new Person(StringGenerate.getStringEngCharRandom(), PasswordGenerate.getPassword(), NameGenerate.getRusNameFromFile()));
-            System.out.println(b);
-            if (!b) {
-                i--;
-            }
+            collect.add(new Person(StringGenerate.getStringEngCharRandom(), PasswordGenerate.getPassword(), NameGenerate.getRusNameFromFile()));
         }
         long end = System.currentTimeMillis();
         return end - start;
@@ -30,15 +25,13 @@ public class AdditionCollections {
      * Метод заполнения коллекции объектами Animal в количестве 100_000
      * @param collect коллекци для заполнения
      */
-    public static void addCollectionAnimal(Collection<Animal> collect){
-        boolean b;
+    public static long addCollectionAnimal(Collection<Animal> collect){
+        long start = System.currentTimeMillis();
         for(int i = 0; i < 100_000; i++) {
-            b = collect.add(new Animal(NameAnimalGenerate.getNameAnimalFromFile(), AgeGenerate.getAge()));
-             if (!b) {
-                 i--;
-             }
+            collect.add(new Animal(NameAnimalGenerate.getNameAnimalFromFile(), AgeGenerate.getAge()));
         }
+        long end = System.currentTimeMillis();
+        return end - start;
     }
-
 
 }
