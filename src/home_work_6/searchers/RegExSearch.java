@@ -16,7 +16,7 @@ public class RegExSearch implements ISearchEngine {
      */
     @Override
     public long search(String text, String word) {
-        Pattern pattern = Pattern.compile("(?<![а-яА-Я0-9-])-?" + word + "(?![0-9а-яА-Я-])");   // \b не корректно получилось lookahead и lookbehind здесь
+        Pattern pattern = Pattern.compile("(?<![а-яА-ЯA-Za-z0-9-])" + word + "(?![0-9A-Za-zа-яА-Я-])");   // \b не корректно получилось. lookahead и lookbehind неготив здесь
         long count = 0;
         Matcher matcher = pattern.matcher(text);
         while(matcher.find()){

@@ -1,0 +1,26 @@
+2.1 - Main2_1
+      UtilFile, UtilString
+
+2.2 - Main2_2
+      UtilFile, UtilString
+
+3   - ISearchEngine
+
+4.1 - EasySearch
+4.2 - RegExSearch
+4.3 - SearchEnginePunctuationNormalizer
+4.4 - SearchEngineIgnoreCase
+4.5 -
+
+5   - Main5_1
+    - Main5_1_1
+    - Main5_1_2
+    - Main5_1_3
+
+6   - src/test/home_work_6      package
+    - EasySearchTest
+    - RegExSearchTest
+    - SearchEnginePunctuationNormalizerTest
+    - SearchEngineIgnoreCaseTest
+
+7   - Main7

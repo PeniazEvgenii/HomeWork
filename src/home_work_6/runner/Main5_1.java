@@ -1,6 +1,6 @@
 package home_work_6.runner;
 
-import home_work_6.UtilFile;
+import home_work_6.utils.UtilFile;
 import home_work_6.api.ISearchEngine;
 import home_work_6.searchers.EasySearch;
 

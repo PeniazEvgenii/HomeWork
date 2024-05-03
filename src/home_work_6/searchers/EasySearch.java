@@ -27,35 +27,22 @@ public class EasySearch implements ISearchEngine {
 
             int nextIndex = current + sizeWord;
 
-            if(isCheckPrevious(text, current) && isCheckNext(text, nextIndex)) {         //середина текста
-                result++;
-            } else if(isCheckPrevious(text, current) && nextIndex == sizeText) {         //конец текста
-                result++;
-            } else if(current == 0 && isCheckNext(text, nextIndex)){                     // начало текста
-                result++;
-            } else if (current == 0 && nextIndex == sizeText){                           // слово целиком
+//            if(isCheckPrevious(text, current) && isCheckNext(text, nextIndex)) {         //середина текста
+//                result++;
+//            } else if(isCheckPrevious(text, current) && nextIndex == sizeText) {         //конец текста
+//                result++;
+//            } else if(current == 0 && isCheckNext(text, nextIndex)){                     // начало текста
+//                result++;
+//            } else if (current == 0 && nextIndex == sizeText){                           // слово целиком
+//                result++;
+//            }
+
+            if((isCheckPrevious(text, current) && isCheckNext(text, nextIndex)) ||
+                    (isCheckPrevious(text, current) && nextIndex == sizeText) ||
+                    (current == 0 && isCheckNext(text, nextIndex)) || (current == 0 && nextIndex == sizeText)
+            ) {
                 result++;
             }
-
-
-
-
-         //  if(nextIndex == sizeText && current != 0) {                            //конец текста
-         //      if(isCheckPrevious(text, current)){
-         //          result++;
-         //      }
-         //  } else if(nextIndex != sizeText && current != 0) {                     //середина текста
-         //      if (isCheckNext(text, nextIndex) && isCheckPrevious(text, current)) {
-         //          result++;
-         //      }
-         //  } else if (nextIndex != sizeText){                             // начало текста
-         //      if (isCheckNext(text, nextIndex)) {
-         //          result++;
-         //      }
-         //  } else if (nextIndex == sizeText){                                     // слово целиком
-         //      result++;
-
-         //  }
 
 
             current = current + sizeWord;

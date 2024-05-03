@@ -17,7 +17,10 @@ public class RegSearchTest {
         Assertions.assertEquals(1, searchEngine.search("привет;какдела!", "какдела"));
         Assertions.assertEquals(1, searchEngine.search("как дела!.Что делаешь?", "Что"));
         Assertions.assertEquals(1, searchEngine.search("как дела!.Что делаешь?", "дела"));
+        Assertions.assertEquals(1, searchEngine.search("hello", "hello"));
+        Assertions.assertEquals(0, searchEngine.search("-hello hello-hello hello- Hello", "hello"));
         Assertions.assertEquals(0, searchEngine.search("Привет-привет", "привет"));
+        Assertions.assertEquals(0, searchEngine.search("-привет", "привет"));
         Assertions.assertEquals(1, searchEngine.search("Привет-привет", "Привет-привет"));
         Assertions.assertEquals(1, searchEngine.search("Привет -привет", "-привет"));
         Assertions.assertEquals(1, searchEngine.search("4-х", "4-х"));
@@ -28,5 +31,6 @@ public class RegSearchTest {
         Assertions.assertEquals(1, searchEngine.search("привет Привет привеТ", "привет"));
         Assertions.assertEquals(0, searchEngine.search("привет6 7привет привет-привет", "привет-"));
         Assertions.assertEquals(0, searchEngine.search("привет- 7-привет -привет-привет", "-привет"));
+
     }
 }

@@ -1,21 +1,18 @@
 package home_work_6.runner;
 
-import home_work_6.UtilFile;
-import home_work_6.UtilString;
+import home_work_6.utils.UtilFile;
+import home_work_6.utils.UtilString;
 
 import java.io.File;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main2_2 {
     public static void main(String[] args) {
         File file = new File("homework/src/home_work_6/resourses/War and peace.txt");
 
         String fromFile = UtilFile.getStringFromFile(file);
-        //System.out.println(fromFile);                              //удалить печать
 
         Map<String, Integer> map = UtilString.getAllWordsWithCount(fromFile);
 
