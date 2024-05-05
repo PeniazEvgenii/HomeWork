@@ -10,7 +10,7 @@
 4.2 - RegExSearch
 4.3 - SearchEnginePunctuationNormalizer
 4.4 - SearchEngineIgnoreCase
-4.5 -
+4.5 - SearchEngineCaseNormalizer +-
 
 5   - Main5_1
     - Main5_1_1
@@ -24,3 +24,4 @@
     - SearchEngineIgnoreCaseTest
 
 7   - Main7
+package    home_work_6/resourses/repos  репозиторий с книгами

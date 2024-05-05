@@ -20,9 +20,14 @@ public class Main7 {
         String folder;
         File file;
         do{
-            System.out.println("Введите адрес репозитория с книгами");        // homework/src/home_work_6/resourses/repos
+            System.out.println("Введите адрес репозитория с книгами. Для выхода из программы введите - exit");   // homework/src/home_work_6/resourses/repos
             folder = console.nextLine();
-            file = new File(folder);                                          //
+
+            if(folder.equalsIgnoreCase("exit")) {
+                return;
+            }
+
+            file = new File(folder);
             if(!checkFolder(file)){
                 System.out.println("Введен неверный адрес репозитория");
             }
@@ -34,6 +39,8 @@ public class Main7 {
             String book = console.nextLine();
 
             if (book.equalsIgnoreCase("exit")) {
+                writeResulInFile(pathResult, "----------------------------------");
+                System.out.println("Результат вашего поиска находится в файле " + pathResult);
                 return;
             }
 
@@ -43,9 +50,9 @@ public class Main7 {
             } else {
                 String word;
                 do {
-                    System.out.println("Введите слово для поиска либо введите exit для возврата в репозиторий");
+                    System.out.println("Введите слово для поиска либо введите back для возврата в репозиторий");
                     word = console.nextLine();
-                    if (word.equalsIgnoreCase("exit")) {
+                    if (word.equalsIgnoreCase("back")) {
                         break;
                     }
                     String result = getStringWithResult(fileBook, word);
