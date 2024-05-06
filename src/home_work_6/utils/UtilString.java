@@ -47,8 +47,8 @@ public class UtilString {
      */
     public static List<Map.Entry<String, Integer>> getTopWords(Map<String, Integer> map, int count) {
         List<Map.Entry<String, Integer>> collect = map.entrySet().stream()
-              //  .sorted((e1, e2) -> e2.getValue() - e1.getValue())
-                .sorted((e1,e2) -> e2.getValue() - e1.getValue() == 0 ? e1.getKey().compareTo(e2.getKey()) : e2.getValue() - e1.getValue())
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed().thenComparing(Map.Entry.comparingByKey()))
+                //.sorted((e1,e2) -> e2.getValue() - e1.getValue() == 0 ? e1.getKey().compareTo(e2.getKey()) : e2.getValue() - e1.getValue())
                 .limit(count)
                 .collect(Collectors.toList());
         return collect;

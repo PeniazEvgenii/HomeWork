@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main7 {
@@ -20,8 +22,8 @@ public class Main7 {
         String folder;
         File file;
         do{
-            System.out.println("Введите адрес репозитория с книгами. Для выхода из программы введите - exit");   // homework/src/home_work_6/resourses/repos
-            folder = console.nextLine();
+            System.out.println("Введите адрес репозитория с книгами. Для выхода из программы введите - exit");
+            folder = console.nextLine();                                                  // homework/src/home_work_6/resourses/repos
 
             if(folder.equalsIgnoreCase("exit")) {
                 return;
@@ -34,12 +36,15 @@ public class Main7 {
         } while(!checkFolder(file));
 
         do{
-            System.out.println(getNameFiles(file));                             // может если пустой то лучше break
+            System.out.println(getNameFiles(file));
             System.out.println("Выберите книгу из перечня и введите ее имя. Для выхода из программы введите - exit");
             String book = console.nextLine();
 
             if (book.equalsIgnoreCase("exit")) {
-                writeResulInFile(pathResult, "----------------------------------");
+
+                UtilFile.writeResulInFile(pathResult, "\tВремя и дата поиска : " +
+                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("d MMMM yyyy года, HH:mm:ss"))
+                        + "\n--------------------------------------------------");
                 System.out.println("Результат вашего поиска находится в файле " + pathResult);
                 return;
             }
@@ -50,14 +55,14 @@ public class Main7 {
             } else {
                 String word;
                 do {
-                    System.out.println("Введите слово для поиска либо введите back для возврата в репозиторий");
+                    System.out.println("Введите слово для поиска. Для возврата в репозиторий введите - back");
                     word = console.nextLine();
                     if (word.equalsIgnoreCase("back")) {
                         break;
                     }
                     String result = getStringWithResult(fileBook, word);
-                    System.out.println(result);                                 //вывожу на экран  быстрого отображения
-                    writeResulInFile(pathResult, result);
+                    System.out.println(result);
+                    UtilFile.writeResulInFile(pathResult, result);
                 } while(true);
             }
             System.out.println(book);
@@ -75,21 +80,6 @@ public class Main7 {
         EasySearch easySearch = new EasySearch();
         long count = easySearch.search(UtilFile.getStringFromFile(fileBook), word);
         return fileBook.getName() + " – " + word + " - " + count;
-    }
-
-    /**
-     * Метод записи строки в файл
-     * @param pathResult куда записываем информацию
-     * @param result строка с результатом поиска
-     */
-    private static void writeResulInFile(Path pathResult, String result) {
-        try (BufferedWriter bufferedWriter = Files.newBufferedWriter(pathResult, StandardOpenOption.APPEND, StandardOpenOption.CREATE)) {
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            System.out.println("Ошибка при работе с файлом");;
-        }
     }
 
     /**
@@ -117,5 +107,4 @@ public class Main7 {
     public static boolean checkFolder(File file) {
         return file.exists() || file.isDirectory();
     }
-
 }

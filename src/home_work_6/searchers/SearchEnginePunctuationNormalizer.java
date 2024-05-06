@@ -17,7 +17,7 @@ public class SearchEnginePunctuationNormalizer implements ISearchEngine {
      */
     @Override
     public long search(String text, String word) {
-        text = text.replaceAll("[\\s.,?!)(\"{};:]+(--)?[\\s.,?!)(\"{};:]*", " ");   // если будет вариант "-- :" и он не оставил несколько пробелов
+        text = text.replaceAll("[\\s.,?!)(\"{};:]+(--)?[\\s.,?!)(\"{};:]*", " ");   // если будет вариант "-- :" и чтобы он не оставил несколько пробелов
         return searchEngine.search(text, word);
     }
 }

@@ -28,5 +28,4 @@ public class Main5_1 {
         System.out.println("Слово " + str + " встречается : " + count);
     }
 
-
 }

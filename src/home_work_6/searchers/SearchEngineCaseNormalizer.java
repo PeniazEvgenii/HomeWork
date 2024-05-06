@@ -6,7 +6,7 @@ import home_work_6.utils.UtilFile;
 import java.io.File;
 import java.util.List;
 
-public class SearchEngineCaseNormalizer implements ISearchEngine {     //c ой подумать надо про творит падеж
+public class SearchEngineCaseNormalizer implements ISearchEngine {
     private final List<String> nounEnd = List.of("а","я","у","ю","е","о","и","ы","ой","ей","ам","ям","ем","ём","ом","ей","ов","ев","ами","ями","ь");
     private final List<String> nounAdjective = List.of("ий","ый","ая","ое","ого","ую","ым","им","ых","их","ые","ие","ым","им","ому","ему","ыми","ими");
     private String caseNoun;
@@ -37,7 +37,11 @@ public class SearchEngineCaseNormalizer implements ISearchEngine {     //c ой 
         return count;
     }
 
-
+    /**
+     * Метод получения части слова без окончания
+     * @param word слово
+     * @return часть слова без окончания
+     */
     private String getRoot(String word) {
         int sumLetter = 0;
         for (String end : nounEnd) {
@@ -48,7 +52,11 @@ public class SearchEngineCaseNormalizer implements ISearchEngine {     //c ой 
         return word.substring(0,  word.length() - sumLetter);
     }
 
-
+    /**
+     * Метод проверки слова на существительное
+     * @param word проверяемое слова
+     * @return результат true - существительное, false - нет
+     */
     private boolean checkNoun(String word) {
         if(word.length() <= 1) {
             return false;

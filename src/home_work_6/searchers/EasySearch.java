@@ -26,18 +26,8 @@ public class EasySearch implements ISearchEngine {
             }
 
             int nextIndex = current + sizeWord;
-
-//            if(isCheckPrevious(text, current) && isCheckNext(text, nextIndex)) {         //середина текста
-//                result++;
-//            } else if(isCheckPrevious(text, current) && nextIndex == sizeText) {         //конец текста
-//                result++;
-//            } else if(current == 0 && isCheckNext(text, nextIndex)){                     // начало текста
-//                result++;
-//            } else if (current == 0 && nextIndex == sizeText){                           // слово целиком
-//                result++;
-//            }
-
-            if((isCheckPrevious(text, current) && isCheckNext(text, nextIndex)) ||
+                                                                                                    // варианты расположения в тексте слова
+            if((isCheckPrevious(text, current) && isCheckNext(text, nextIndex)) ||                  //  середина текста / конец текста / начало текста / слово целиком весь текст
                     (isCheckPrevious(text, current) && nextIndex == sizeText) ||
                     (current == 0 && isCheckNext(text, nextIndex)) || (current == 0 && nextIndex == sizeText)
             ) {

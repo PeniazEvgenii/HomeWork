@@ -11,10 +11,7 @@ import java.util.Scanner;
 public class Main2_2 {
     public static void main(String[] args) {
         File file = new File("homework/src/home_work_6/resourses/War and peace.txt");
-
         String fromFile = UtilFile.getStringFromFile(file);
-
-        Map<String, Integer> map = UtilString.getAllWordsWithCount(fromFile);
 
         Scanner console = new Scanner(System.in);
         int count;
@@ -26,12 +23,10 @@ public class Main2_2 {
             }
         } while(!checkInput(count));
 
-        List<Map.Entry<String, Integer>> topWords = UtilString.getTopWords(map, count);
+        String result = getTopString(fromFile, count);
+        System.out.println(result);
 
-        int num = 1;
-        for (Map.Entry<String, Integer> word : topWords) {
-            System.out.println(num++ + "). " + word);
-        }
+
     }
 
     /**
@@ -41,5 +36,30 @@ public class Main2_2 {
      */
     public static boolean checkInput(int count) {
         return count >= 1;
+    }
+
+    /**
+     * Метод получения строки из наиболее часто встречающихся слов
+     * @param fromFile анализируемая строка
+     * @param count количество слов
+     * @return строка со словами и количеством их в тексте
+     */
+    public static String getTopString(String fromFile, int count) {
+        Map<String, Integer> map = UtilString.getAllWordsWithCount(fromFile);
+
+        List<Map.Entry<String, Integer>> topWords = UtilString.getTopWords(map, count);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        int num = 1;
+        boolean first = true;
+        for (Map.Entry<String, Integer> word : topWords) {
+            if(first){
+                first = false;
+            } else {
+                stringBuilder.append("\n");
+            }
+            stringBuilder.append(num++).append("). ").append(word);
+        }
+        return stringBuilder.toString();
     }
 }
