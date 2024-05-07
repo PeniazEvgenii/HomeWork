@@ -14,9 +14,11 @@ import java.util.Scanner;
 
 public class Main7 {
 
+    public static final String DIRECTORY_RESULT = "homework/src/home_work_6";
+
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        Path pathResult = Path.of("homework/src/home_work_6/result.txt");
+        Path pathResult = Path.of(DIRECTORY_RESULT,"result.txt");
         
 
         String folder;
@@ -42,7 +44,7 @@ public class Main7 {
 
             if (book.equalsIgnoreCase("exit")) {
 
-                UtilFile.writeResulInFile(pathResult, "\tВремя и дата поиска : " +
+                UtilFile.writeResulInFile(pathResult, "\tДата и время поиска : " +
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("d MMMM yyyy года, HH:mm:ss"))
                         + "\n--------------------------------------------------");
                 System.out.println("Результат вашего поиска находится в файле " + pathResult);
