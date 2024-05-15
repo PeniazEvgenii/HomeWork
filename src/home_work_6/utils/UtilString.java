@@ -5,8 +5,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class UtilString {
+public final class UtilString {
     public static final String TEMPLATE_WORD = "-?[а-яА-ЯёЁ0-9A-Za-z]+[-'^]?[а-яА-ЯёЁ0-9A-Za-z-]*";   // есть одно слово n^tres
+
+    private UtilString(){
+    }
 
     /**
      * Метод получения множества уникальных слов в строке

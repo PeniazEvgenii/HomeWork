@@ -24,4 +24,8 @@
     - SearchEngineIgnoreCaseTest
 
 7   - Main7
+
+8   - Main8
+
 package    home_work_6/resourses/repos  репозиторий с книгами
+package    home_work_6/report  файлы с результатами поиска

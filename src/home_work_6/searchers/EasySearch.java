@@ -34,8 +34,7 @@ public class EasySearch implements ISearchEngine {
                 result++;
             }
 
-
-            current = current + sizeWord;
+            current += sizeWord;
         } while(text.indexOf(word, current) != - 1);
 
         return result;

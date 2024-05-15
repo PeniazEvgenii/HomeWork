@@ -1,5 +1,8 @@
 package home_work_6.runner;
 
+import home_work_6.api.IFilePrintable;
+import home_work_6.printer.FilePrinter;
+import home_work_6.searchers.FileSearch;
 import home_work_6.utils.UtilFile;
 import home_work_6.searchers.EasySearch;
 import java.io.BufferedWriter;
@@ -14,12 +17,13 @@ import java.util.Scanner;
 
 public class Main7 {
 
-    public static final String DIRECTORY_RESULT = "homework/src/home_work_6";
+    public static final String DIRECTORY_RESULT = "homework/src/home_work_6/report";
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         Path pathResult = Path.of(DIRECTORY_RESULT,"result.txt");
-        
+        IFilePrintable filePrinter = new FilePrinter(pathResult);
+        FileSearch fileSearch = new FileSearch(new EasySearch());
 
         String folder;
         File file;
@@ -32,10 +36,10 @@ public class Main7 {
             }
 
             file = new File(folder);
-            if(!checkFolder(file)){
+            if(!UtilFile.checkFolder(file)){
                 System.out.println("Введен неверный адрес репозитория");
             }
-        } while(!checkFolder(file));
+        } while(!UtilFile.checkFolder(file));
 
         do{
             System.out.println(getNameFiles(file));
@@ -44,14 +48,17 @@ public class Main7 {
 
             if (book.equalsIgnoreCase("exit")) {
 
-                UtilFile.writeResulInFile(pathResult, "\tДата и время поиска : " +
-                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("d MMMM yyyy года, HH:mm:ss"))
-                        + "\n--------------------------------------------------");
+                filePrinter.print("\tДата и время поиска : " +
+                            LocalDateTime.now().format(DateTimeFormatter.ofPattern("d MMMM yyyy года, HH:mm:ss"))
+                              + "\n----------------------------------------------------");
+
                 System.out.println("Результат вашего поиска находится в файле " + pathResult);
                 return;
             }
 
-            File fileBook = new File(folder + "/" + book);
+            String pathBook = folder + "/" + book;
+            File fileBook = new File(pathBook);
+
             if(!fileBook.exists()){
                 System.out.println("Введено неверное имя книги");
             } else {
@@ -62,12 +69,15 @@ public class Main7 {
                     if (word.equalsIgnoreCase("back")) {
                         break;
                     }
-                    String result = getStringWithResult(fileBook, word);
+
+                    long search = fileSearch.search(pathBook, word);
+                    String result = getStringWithResult(fileBook, word, search);
                     System.out.println(result);
-                    UtilFile.writeResulInFile(pathResult, result);
+
+                    filePrinter.print(result);
+
                 } while(true);
             }
-            System.out.println(book);
         } while(true);
 
     }
@@ -78,9 +88,7 @@ public class Main7 {
      * @param word искомое слово
      * @return строка с результатом в формате «Имя файла – слово – количество»
      */
-    private static String getStringWithResult(File fileBook, String word) {
-        EasySearch easySearch = new EasySearch();
-        long count = easySearch.search(UtilFile.getStringFromFile(fileBook), word);
+    private static String getStringWithResult(File fileBook, String word, long count) {
         return fileBook.getName() + " – " + word + " - " + count;
     }
 
@@ -99,14 +107,5 @@ public class Main7 {
             stringBuilder.append(s).append("\n");
         }
         return  stringBuilder.toString();
-    }
-
-    /**
-     * Метод проверки наличия папки
-     * @param file объект File с путем к папке
-     * @return true - папка существует, false - не существует
-     */
-    public static boolean checkFolder(File file) {
-        return file.exists() || file.isDirectory();
     }
 }

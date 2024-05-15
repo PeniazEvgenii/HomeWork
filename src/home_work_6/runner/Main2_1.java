@@ -18,7 +18,5 @@ public class Main2_1 {
 
         Set<String> uniqWordsFromString = UtilString.getUniqWords(fromFile);
         System.out.println("Количество уникальных слов составляет: " + uniqWordsFromString.size());
-
-
     }
 }

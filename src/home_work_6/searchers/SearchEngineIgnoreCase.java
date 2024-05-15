@@ -25,7 +25,7 @@ public class SearchEngineIgnoreCase implements ISearchEngine{
     @Override
     public long search(String text, String word) {
         if(searchEngine instanceof RegExSearch) {
-            Pattern pattern = Pattern.compile("(?<![а-яА-Я0-9-])-?" + word + "(?![0-9а-яА-Я-])",CASE_INSENSITIVE | UNICODE_CASE);
+            Pattern pattern = Pattern.compile("(?<![а-яА-ЯA-Za-z0-9-])-?" + word + "(?![0-9A-Za-zа-яА-Я-])",CASE_INSENSITIVE | UNICODE_CASE);
             long count = 0;
             Matcher matcher = pattern.matcher(text);
             while(matcher.find()){

@@ -1,11 +1,15 @@
 package home_work_6.utils;
 
+import home_work_6.printer.FilePrinter;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class UtilFile {
+public final class UtilFile {
+
+    private UtilFile() {
+    }
 
     /**
      * Метод получения строки при чтении файла
@@ -32,12 +36,24 @@ public class UtilFile {
         return result;
     }
 
+    /**
+     * Метод проверки наличия папки
+     * @param file объект File с путем к папке
+     * @return true - папка существует, false - не существует
+     */
+    public static boolean checkFolder(File file) {
+        return file.exists() || file.isDirectory();
+    }
+
 
     /**
-     * Метод записи строки в файл
+     *
+     * @Deprecated - метод утратил актуальность. Вместо него используйте {@link FilePrinter#print}
+     * Метод записи строки в файл.
      * @param pathResult куда записываем информацию
      * @param result строка с результатом поиска
      */
+    @Deprecated
     public static void writeResulInFile(Path pathResult, String result) {
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(pathResult, StandardOpenOption.APPEND, StandardOpenOption.CREATE)) {
             bufferedWriter.write(result);
