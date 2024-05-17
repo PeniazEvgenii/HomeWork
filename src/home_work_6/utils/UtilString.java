@@ -12,12 +12,12 @@ public final class UtilString {
     }
 
     /**
-     * Метод получения множества уникальных слов в строке
-     * @param str строка
-     * @return множество из уникальных слов
+     * Метод получения всех слов из текста
+     * @param str текст
+     * @return лист слов
      */
-    public static Set<String> getUniqWords(String str) {
-        Set<String> words = new HashSet<>();
+    public static List<String> getAllWords(String str) {
+        List<String> words = new ArrayList<>();
         Pattern pattern = Pattern.compile(TEMPLATE_WORD);
         Matcher matcher = pattern.matcher(str);
         while(matcher.find()) {
@@ -27,17 +27,26 @@ public final class UtilString {
     }
 
     /**
+     * Метод получения множества уникальных слов в строке
+     * @param str строка
+     * @return множество из уникальных слов
+     */
+    public static Set<String> getUniqWords(String str) {
+        List<String> allWords = getAllWords(str);
+        return new HashSet<>(allWords);
+    }
+
+
+    /**
      * Метод получения Map<K,V> , где K - слово, V - количество появления слова в строке
      * @param str строка
      * @return Map<String, Integer>
      */
     public static Map<String, Integer> getAllWordsWithCount(String str) {
         Map<String, Integer> map = new HashMap<>();
-
-        Pattern pattern = Pattern.compile(TEMPLATE_WORD);
-        Matcher matcher = pattern.matcher(str);
-        while(matcher.find()) {
-            map.merge(matcher.group(), 1, Integer::sum);
+        List<String> allWords = getAllWords(str);
+        for (String word : allWords) {
+            map.merge(word, 1, Integer::sum);
         }
         return map;
     }
@@ -63,12 +72,6 @@ public final class UtilString {
      * @return количество слов в строке
      */
     public static int getAllCountWords(String str) {
-        int count = 0;
-        Pattern pattern = Pattern.compile(TEMPLATE_WORD);
-        Matcher matcher = pattern.matcher(str);
-        while(matcher.find()) {
-            count++;
-        }
-        return count;
+        return getAllWords(str).size();
     }
 }
